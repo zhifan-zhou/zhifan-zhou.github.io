@@ -2,14 +2,13 @@
 
 A static personal academic homepage and interactive resume for Zhifan Zhou, an undergraduate student at Carnegie Mellon University studying Statistics and Machine Learning.
 
-The site uses routed pages for Home, Publications, Experiences, and Contact. It includes a profile portrait, bilingual EN/CN content, light/dark theme switching, a local Page Views counter, expandable News, a project-focused Experiences page, a command palette, and a static contact form that opens the visitor's email client.
+The site uses routed pages for Home, Publications, Experiences, and Contact. It includes a cinematic profile hero, bilingual EN/CN content, light/dark theme switching, a local Page Views counter, expandable News, an interactive DataMaster workflow, a command palette, and a static contact form that opens the visitor's email client.
 
 ## Current Profile Links
 
 - GitHub: https://github.com/zhifan-zhou
 - Email: skyzhou@andrew.cmu.edu
-- Current temporary project-site URL: https://zhifan-zhou.github.io/Personal-Website/
-- Required final root homepage URL: https://zhifan-zhou.github.io/
+- Homepage URL: https://zhifan-zhou.github.io/
 
 ## Tech Stack
 
@@ -50,18 +49,6 @@ npm run build
 
 The production build exports static files to `out/`.
 
-For the root user-site build, leave `NEXT_PUBLIC_BASE_PATH` empty:
-
-```bash
-npm run build
-```
-
-For the temporary project-site build only, GitHub Actions sets:
-
-```bash
-NEXT_PUBLIC_BASE_PATH=/Personal-Website npm run build
-```
-
 To preview the exported static site:
 
 ```bash
@@ -70,54 +57,18 @@ npm run preview
 
 ## GitHub Pages Deployment
 
-This project is configured for GitHub Pages through `.github/workflows/deploy.yml`.
-
-The workflow automatically chooses the correct base path from the repository name:
-
-- If the repository is `zhifan-zhou.github.io`, it builds for the root URL `https://zhifan-zhou.github.io/`.
-- If the repository is `Personal-Website`, it builds for the project URL `https://zhifan-zhou.github.io/Personal-Website/`.
-
-For the final desired deployment, the repository must be named exactly `zhifan-zhou.github.io`. The code is root-deployment-ready: when `NEXT_PUBLIC_BASE_PATH` is empty, `next.config.mjs` does not set `basePath` or `assetPrefix`, so assets and routes load from `/`.
-
-In the repository settings, make sure:
-
-- `Settings` -> `Pages` -> `Build and deployment` -> `Source` is set to `GitHub Actions`
-- Actions are enabled for the repository
-
-## Migrate to the Root GitHub Pages URL
-
-To make the final site available at:
+This repository is the GitHub Pages user site `zhifan-zhou.github.io`, so the app builds for the root URL:
 
 ```text
 https://zhifan-zhou.github.io/
 ```
 
-you need a GitHub user-site repository named exactly:
+The code is root-deployment-ready: when `NEXT_PUBLIC_BASE_PATH` is empty, `next.config.mjs` does not set `basePath` or `assetPrefix`, so assets and routes load from `/`.
 
-```text
-zhifan-zhou.github.io
-```
+In the repository settings, make sure:
 
-Migration steps:
-
-1. Create a new repository named `zhifan-zhou.github.io`, or rename the existing website repository to `zhifan-zhou.github.io`.
-2. Move or copy this website code into that repository.
-3. Update the local git remote:
-
-```bash
-git remote set-url origin git@github.com:zhifan-zhou/zhifan-zhou.github.io.git
-```
-
-4. Keep `next.config.mjs` as-is. It uses `NEXT_PUBLIC_BASE_PATH` only when the workflow detects a project-site repository.
-5. In GitHub, set `Settings` -> `Pages` -> `Build and deployment` -> `Source` to `GitHub Actions`.
-6. Push to `main` and wait for the `Deploy GitHub Pages` workflow to finish.
-7. Verify the final URL: `https://zhifan-zhou.github.io/`.
-
-If you keep this code in `Personal-Website`, the correct URL remains:
-
-```text
-https://zhifan-zhou.github.io/Personal-Website/
-```
+- `Settings` -> `Pages` -> `Build and deployment` -> `Source` is set to `GitHub Actions`
+- Actions are enabled for the repository
 
 ## Deploy to Vercel
 
@@ -199,7 +150,7 @@ Each project supports:
 ## Interaction Notes
 
 - Press `Cmd + K` on macOS or `Ctrl + K` on Windows/Linux to open the command palette.
-- The profile card includes a local browser Page Views counter using `localStorage`; it does not require a backend.
+- The hero includes a local browser Page Views counter using `localStorage`; it does not require a backend.
 - The language toggle stores EN/CN preference in `localStorage`.
 - The theme toggle stores light/dark preference in `localStorage`.
 - The contact form uses `mailto:`.
