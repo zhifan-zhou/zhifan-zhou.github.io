@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+
+# next
+.next/
+out/
+tsconfig.tsbuildinfo
+
+# production
+build/
+dist/
+
+# local env
+.env*
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# misc
+.DS_Store
+*.pem
