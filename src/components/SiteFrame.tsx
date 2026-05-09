@@ -10,7 +10,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     <>
       <ScrollProgress />
       <SiteNav />
-      <main className="mx-auto min-h-[calc(100vh-137px)] max-w-6xl px-5 py-10 sm:py-14">
+      <main className="mx-auto min-h-[calc(100vh-137px)] max-w-7xl px-5 py-10 sm:py-14">
         {children}
       </main>
       <Footer />

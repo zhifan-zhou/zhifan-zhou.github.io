@@ -8,8 +8,8 @@ The site uses routed pages for Home, Publications, Experiences, and Contact. It 
 
 - GitHub: https://github.com/zhifan-zhou
 - Email: skyzhou@andrew.cmu.edu
-- Temporary project-site URL: https://zhifan-zhou.github.io/Personal-Website/
-- Target root homepage URL: https://zhifan-zhou.github.io/
+- Current temporary project-site URL: https://zhifan-zhou.github.io/Personal-Website/
+- Required final root homepage URL: https://zhifan-zhou.github.io/
 
 ## Tech Stack
 
@@ -50,6 +50,18 @@ npm run build
 
 The production build exports static files to `out/`.
 
+For the root user-site build, leave `NEXT_PUBLIC_BASE_PATH` empty:
+
+```bash
+npm run build
+```
+
+For the temporary project-site build only, GitHub Actions sets:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/Personal-Website npm run build
+```
+
 To preview the exported static site:
 
 ```bash
@@ -60,10 +72,12 @@ npm run preview
 
 This project is configured for GitHub Pages through `.github/workflows/deploy.yml`.
 
-The workflow automatically chooses the correct base path:
+The workflow automatically chooses the correct base path from the repository name:
 
 - If the repository is `zhifan-zhou.github.io`, it builds for the root URL `https://zhifan-zhou.github.io/`.
 - If the repository is `Personal-Website`, it builds for the project URL `https://zhifan-zhou.github.io/Personal-Website/`.
+
+For the final desired deployment, the repository must be named exactly `zhifan-zhou.github.io`. The code is root-deployment-ready: when `NEXT_PUBLIC_BASE_PATH` is empty, `next.config.mjs` does not set `basePath` or `assetPrefix`, so assets and routes load from `/`.
 
 In the repository settings, make sure:
 
@@ -88,10 +102,16 @@ Migration steps:
 
 1. Create a new repository named `zhifan-zhou.github.io`, or rename the existing website repository to `zhifan-zhou.github.io`.
 2. Move or copy this website code into that repository.
-3. Keep `next.config.mjs` as-is. It uses `NEXT_PUBLIC_BASE_PATH` only when the workflow detects a project-site repository.
-4. In GitHub, set `Settings` -> `Pages` -> `Build and deployment` -> `Source` to `GitHub Actions`.
-5. Push to `main` and wait for the `Deploy GitHub Pages` workflow to finish.
-6. Verify the final URL: `https://zhifan-zhou.github.io/`.
+3. Update the local git remote:
+
+```bash
+git remote set-url origin git@github.com:zhifan-zhou/zhifan-zhou.github.io.git
+```
+
+4. Keep `next.config.mjs` as-is. It uses `NEXT_PUBLIC_BASE_PATH` only when the workflow detects a project-site repository.
+5. In GitHub, set `Settings` -> `Pages` -> `Build and deployment` -> `Source` to `GitHub Actions`.
+6. Push to `main` and wait for the `Deploy GitHub Pages` workflow to finish.
+7. Verify the final URL: `https://zhifan-zhou.github.io/`.
 
 If you keep this code in `Personal-Website`, the correct URL remains:
 

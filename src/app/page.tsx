@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 import { ProfileAside } from "@/components/ProfileAside";
@@ -14,13 +14,13 @@ export default function Home() {
   const visibleNews = showAllNews ? copy.home.news : copy.home.news.slice(0, 3);
 
   return (
-    <div className="grid min-w-0 gap-10 lg:grid-cols-[320px_1fr] lg:items-start">
+    <div className="home-layout">
       <ProfileAside />
 
-      <div className="min-w-0 space-y-12">
-        <Reveal className="hero-panel hero-showcase">
+      <div className="home-main">
+        <Reveal className="hero-editorial">
           <div className="hero-aura" aria-hidden="true" />
-          <div className="relative">
+          <div className="hero-identity">
             <p className="hero-eyebrow">{copy.home.eyebrow}</p>
             <h1 className="hero-title">{copy.home.title}</h1>
             <p className="hero-copy">{copy.home.positioning}</p>
@@ -41,22 +41,22 @@ export default function Home() {
                 GitHub
               </a>
             </div>
-
-            <div className="hero-metrics" aria-label="Profile highlights">
-              <div>
-                <span>{copy.profile.school}</span>
-                <strong>{copy.profile.major}</strong>
-              </div>
-              <div>
-                <span>DataMaster</span>
-                <strong>{copy.publications.items[0]?.status}</strong>
-              </div>
-              <div>
-                <span>Focus</span>
-                <strong>{copy.profile.line}</strong>
-              </div>
-            </div>
           </div>
+
+          <aside className="hero-metadata" aria-label="Profile highlights">
+            <div>
+              <span>Program</span>
+              <strong>{copy.profile.major}</strong>
+            </div>
+            <div>
+              <span>Featured Work</span>
+              <strong>DataMaster · {copy.publications.items[0]?.status}</strong>
+            </div>
+            <div>
+              <span>Focus</span>
+              <strong>{copy.profile.line}</strong>
+            </div>
+          </aside>
         </Reveal>
 
         <Reveal id="about" className="content-section">
@@ -70,16 +70,16 @@ export default function Home() {
 
         <Reveal id="research" className="content-section">
           <h2 className="section-title">{copy.home.researchTitle}</h2>
-          <ul className="research-map">
+          <ol className="research-notes">
             {copy.home.researchInterests.map((interest, index) => (
-              <li key={interest} style={{ "--node-index": index } as CSSProperties}>
+              <li key={interest}>
                 <span className="research-index">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                {interest}
+                <span>{interest}</span>
               </li>
             ))}
-          </ul>
+          </ol>
         </Reveal>
 
         <Reveal id="news" className="content-section">

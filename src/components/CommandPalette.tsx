@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
 
 import { profile } from "@/data/profile";
+import { cn } from "@/lib/utils";
 
 import { useLanguage } from "./LanguageProvider";
 import { useTheme } from "./ThemeProvider";
@@ -23,11 +24,13 @@ export function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   function closePalette() {
     setIsOpen(false);
     setQuery("");
+    setActiveIndex(0);
   }
 
   async function copyEmail() {
@@ -119,12 +122,12 @@ export function CommandPalette() {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         setIsOpen(true);
+        setActiveIndex(0);
         window.setTimeout(() => inputRef.current?.focus(), 0);
       }
 
       if (event.key === "Escape") {
-        setIsOpen(false);
-        setQuery("");
+        closePalette();
       }
     }
 
@@ -140,8 +143,24 @@ export function CommandPalette() {
   }
 
   function handleInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.key === "Enter" && visibleActions[0]) {
-      runAction(visibleActions[0]);
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveIndex((current) =>
+        visibleActions.length ? (current + 1) % visibleActions.length : 0,
+      );
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveIndex((current) =>
+        visibleActions.length
+          ? (current - 1 + visibleActions.length) % visibleActions.length
+          : 0,
+      );
+    }
+
+    if (event.key === "Enter" && visibleActions[activeIndex]) {
+      runAction(visibleActions[activeIndex]);
     }
   }
 
@@ -153,6 +172,7 @@ export function CommandPalette() {
         aria-label={copy.commandPalette.title}
         onClick={() => {
           setIsOpen(true);
+          setActiveIndex(0);
           window.setTimeout(() => inputRef.current?.focus(), 0);
         }}
       >
@@ -181,20 +201,35 @@ export function CommandPalette() {
             <input
               ref={inputRef}
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                setActiveIndex(0);
+              }}
               onKeyDown={handleInputKeyDown}
               placeholder={copy.commandPalette.placeholder}
               className="command-input"
+              aria-activedescendant={
+                visibleActions[activeIndex]
+                  ? `command-action-${visibleActions[activeIndex].id}`
+                  : undefined
+              }
             />
 
-            <div className="command-list">
+            <div className="command-list" role="listbox">
               {visibleActions.length ? (
-                visibleActions.map((action) => (
+                visibleActions.map((action, index) => (
                   <button
                     key={action.id}
+                    id={`command-action-${action.id}`}
                     type="button"
-                    className="command-item"
+                    role="option"
+                    aria-selected={activeIndex === index}
+                    className={cn(
+                      "command-item",
+                      activeIndex === index && "command-item-active",
+                    )}
                     onClick={() => runAction(action)}
+                    onMouseEnter={() => setActiveIndex(index)}
                   >
                     <span>{action.label}</span>
                     <small>{action.description}</small>
