@@ -52,7 +52,9 @@ export type EducationEntry = {
 const email = "skyzhou06@163.com";
 const github = "https://github.com/Sky-alt-ux";
 const linkedin = "https://www.linkedin.com/in/zhifan-zhou-425ab6331/";
-const resumeUrl = "/resume.pdf";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const withBasePath = (path: string) => `${basePath}${path}`;
+const resumeUrl = withBasePath("/resume.pdf");
 
 export const profile = {
   name: "Zhifan Zhou",
@@ -67,7 +69,7 @@ export const profile = {
   linkedin,
   resumeUrl,
   photo: {
-    src: "/profile-photo.png",
+    src: withBasePath("/profile-photo.png"),
     alt: "Portrait of Zhifan Zhou",
     objectPosition: "44% 34%",
   },

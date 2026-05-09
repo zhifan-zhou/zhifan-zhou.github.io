@@ -60,14 +60,35 @@ Because the app is static, it does not require environment variables, a backend 
 
 ## GitHub Pages Notes
 
-This project is configured for static export. For GitHub Pages, deploy the `out/` directory after running:
+This project is configured for GitHub Pages through `.github/workflows/deploy.yml`.
+
+After pushing to `main`, GitHub Actions builds the static site and deploys the `out/` directory to:
+
+```text
+https://sky-alt-ux.github.io/Personal-Website/
+```
+
+In the repository settings, make sure:
+
+- `Settings` -> `Pages` -> `Build and deployment` -> `Source` is set to `GitHub Actions`
+- Actions are enabled for the repository
+
+The workflow builds with:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/Personal-Website npm run build
+```
+
+This makes Next.js links, scripts, styles, and public assets work under the GitHub Pages subpath.
+
+For manual static export:
 
 ```bash
 npm install
 npm run build
 ```
 
-If deploying under a repository subpath such as `/Personal-Website/`, add `basePath` and `assetPrefix` to `next.config.mjs` before building.
+The normal local and Vercel builds still use no base path.
 
 ## Editing Personal Data
 
