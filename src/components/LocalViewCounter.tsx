@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const storageKey = "skyzhou-site-local-views";
+const storageKey = "zhifan-site-page-views";
 
 export function LocalViewCounter() {
   const [views, setViews] = useState<number | null>(null);
@@ -20,9 +20,9 @@ export function LocalViewCounter() {
   }, []);
 
   return (
-    <span className="inline-flex items-center gap-2 rounded-md border border-stone-200 bg-stone-50 px-2.5 py-1 text-xs text-stone-600">
+    <span className="page-views-badge">
       <span className="size-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
-      {views === null ? "views loading" : `${views.toLocaleString()} local views`}
+      {views === null ? "Page Views" : `Page Views: ${views.toLocaleString()}`}
     </span>
   );
 }

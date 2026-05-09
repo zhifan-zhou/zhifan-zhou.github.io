@@ -40,7 +40,11 @@ export function ExperiencesPageClient() {
         <h2 className="section-title">{copy.experiences.projectsTitle}</h2>
         <div className="project-showcase">
           {copy.experiences.projects.map((project, index) => (
-            <article key={project.title} className="project-feature">
+            <article
+              key={project.title}
+              id={project.title.toLowerCase() === "datamaster" ? "datamaster" : undefined}
+              className="project-feature"
+            >
               <div className="project-index">
                 {String(index + 1).padStart(2, "0")}
               </div>
@@ -52,6 +56,11 @@ export function ExperiencesPageClient() {
                 <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-600">
                   {project.description}
                 </p>
+                <div className="project-pipeline" aria-label={`${project.title} workflow`}>
+                  {project.tags.slice(0, 4).map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span key={tag} className="tag">

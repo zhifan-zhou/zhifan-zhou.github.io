@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
+import Link from "next/link";
 
 import { ProfileAside } from "@/components/ProfileAside";
 import { useLanguage } from "@/components/LanguageProvider";
+import { Reveal } from "@/components/Reveal";
+import { profile } from "@/data/profile";
 
 export default function Home() {
   const { copy } = useLanguage();
@@ -15,56 +18,71 @@ export default function Home() {
       <ProfileAside />
 
       <div className="min-w-0 space-y-12">
-        <section className="hero-panel">
-          <p className="text-sm font-medium text-sky-700">
-            {copy.home.eyebrow}
-          </p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
-            {copy.home.title}
-          </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-700">
-            {copy.home.positioning}
-          </p>
-        </section>
+        <Reveal className="hero-panel hero-showcase">
+          <div className="hero-aura" aria-hidden="true" />
+          <div className="relative">
+            <p className="hero-eyebrow">{copy.home.eyebrow}</p>
+            <h1 className="hero-title">{copy.home.title}</h1>
+            <p className="hero-copy">{copy.home.positioning}</p>
 
-        <section className="content-section">
+            <div className="hero-actions">
+              <Link href="/publications" className="primary-action">
+                {copy.nav.publications}
+              </Link>
+              <Link href="/experiences#datamaster" className="secondary-action">
+                DataMaster
+              </Link>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+                className="secondary-action"
+              >
+                GitHub
+              </a>
+            </div>
+
+            <div className="hero-metrics" aria-label="Profile highlights">
+              <div>
+                <span>{copy.profile.school}</span>
+                <strong>{copy.profile.major}</strong>
+              </div>
+              <div>
+                <span>DataMaster</span>
+                <strong>{copy.publications.items[0]?.status}</strong>
+              </div>
+              <div>
+                <span>Focus</span>
+                <strong>{copy.profile.line}</strong>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal id="about" className="content-section">
           <h2 className="section-title">{copy.home.aboutTitle}</h2>
           <div className="space-y-4 text-[1.02rem] leading-8 text-stone-700">
             {copy.home.about.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-        </section>
+        </Reveal>
 
-        <section className="content-section">
+        <Reveal id="research" className="content-section">
           <h2 className="section-title">{copy.home.researchTitle}</h2>
-          <ul className="interest-list">
-            {copy.home.researchInterests.map((interest) => (
-              <li key={interest}>
-                <span aria-hidden="true" />
+          <ul className="research-map">
+            {copy.home.researchInterests.map((interest, index) => (
+              <li key={interest} style={{ "--node-index": index } as CSSProperties}>
+                <span className="research-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 {interest}
               </li>
             ))}
           </ul>
-        </section>
+        </Reveal>
 
-        <section className="content-section">
-          <h2 className="section-title">{copy.home.skillsTitle}</h2>
-          <div className="skill-list-grid">
-            {copy.home.skillGroups.map((group) => (
-              <section key={group.title} className="skill-list-column">
-                <h3>{group.title}</h3>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        </section>
-
-        <section className="content-section">
+        <Reveal id="news" className="content-section">
           <h2 className="section-title">{copy.home.newsTitle}</h2>
           <div className="news-list">
             {visibleNews.map((item) => (
@@ -83,7 +101,7 @@ export default function Home() {
               {showAllNews ? copy.home.showLess : copy.home.showMore}
             </button>
           ) : null}
-        </section>
+        </Reveal>
       </div>
     </div>
   );

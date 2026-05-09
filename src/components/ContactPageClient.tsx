@@ -13,6 +13,7 @@ export function ContactPageClient() {
   const [name, setName] = useState("");
   const [senderEmail, setSenderEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -23,6 +24,12 @@ export function ContactPageClient() {
     );
 
     window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+  }
+
+  async function handleCopyEmail() {
+    await navigator.clipboard.writeText(profile.email);
+    setCopiedEmail(true);
+    window.setTimeout(() => setCopiedEmail(false), 1800);
   }
 
   return (
@@ -83,6 +90,15 @@ export function ContactPageClient() {
             >
               {profile.email}
             </a>
+            <button
+              type="button"
+              className="copy-email-button"
+              onClick={handleCopyEmail}
+            >
+              {copiedEmail
+                ? copy.contact.copiedEmailLabel
+                : copy.contact.copyEmailLabel}
+            </button>
           </div>
 
           <div className="mt-6 flex gap-3">
@@ -100,13 +116,7 @@ export function ContactPageClient() {
               src="https://www.openstreetmap.org/export/embed.html?bbox=-79.9564%2C40.4354%2C-79.9325%2C40.4513&layer=mapnik&marker=40.4433%2C-79.9436"
               loading="lazy"
             />
-            <div className="map-label">
-              <span aria-hidden="true" />
-              <div>
-                <p>{copy.contact.mapTitle}</p>
-                <small>{profile.schoolAddress}</small>
-              </div>
-            </div>
+            <span className="map-pin-clean" aria-hidden="true" />
           </div>
         </aside>
       </div>

@@ -2,7 +2,14 @@
 
 A static personal academic homepage and interactive resume for Zhifan Zhou, an undergraduate student at Carnegie Mellon University studying Statistics and Machine Learning.
 
-The site uses routed pages for Home, Publications, Experiences, and Contact. It includes a profile portrait, bilingual EN/CN content, light/dark theme switching, a local page-view counter, expandable news, a project-focused experience page, and a static contact form that opens the visitor's email client.
+The site uses routed pages for Home, Publications, Experiences, and Contact. It includes a profile portrait, bilingual EN/CN content, light/dark theme switching, a local Page Views counter, expandable News, a project-focused Experiences page, a command palette, and a static contact form that opens the visitor's email client.
+
+## Current Profile Links
+
+- GitHub: https://github.com/zhifan-zhou
+- Email: skyzhou@andrew.cmu.edu
+- Temporary project-site URL: https://zhifan-zhou.github.io/Personal-Website/
+- Target root homepage URL: https://zhifan-zhou.github.io/
 
 ## Tech Stack
 
@@ -14,7 +21,7 @@ The site uses routed pages for Home, Publications, Experiences, and Contact. It 
 
 ## Pages
 
-- `/` — Home, portrait, About, research interests, language/skill lists, and News
+- `/` — Home, portrait, About, research interests, and News
 - `/publications` — DataMaster publication entry with review status
 - `/experiences` — Education, Projects, and Work Experiences with an interactive timeline
 - `/contact` — Contact dropbox, email/social links, and Carnegie Mellon map
@@ -49,6 +56,49 @@ To preview the exported static site:
 npm run preview
 ```
 
+## GitHub Pages Deployment
+
+This project is configured for GitHub Pages through `.github/workflows/deploy.yml`.
+
+The workflow automatically chooses the correct base path:
+
+- If the repository is `zhifan-zhou.github.io`, it builds for the root URL `https://zhifan-zhou.github.io/`.
+- If the repository is `Personal-Website`, it builds for the project URL `https://zhifan-zhou.github.io/Personal-Website/`.
+
+In the repository settings, make sure:
+
+- `Settings` -> `Pages` -> `Build and deployment` -> `Source` is set to `GitHub Actions`
+- Actions are enabled for the repository
+
+## Migrate to the Root GitHub Pages URL
+
+To make the final site available at:
+
+```text
+https://zhifan-zhou.github.io/
+```
+
+you need a GitHub user-site repository named exactly:
+
+```text
+zhifan-zhou.github.io
+```
+
+Migration steps:
+
+1. Create a new repository named `zhifan-zhou.github.io`, or rename the existing website repository to `zhifan-zhou.github.io`.
+2. Move or copy this website code into that repository.
+3. Keep `next.config.mjs` as-is. It uses `NEXT_PUBLIC_BASE_PATH` only when the workflow detects a project-site repository.
+4. In GitHub, set `Settings` -> `Pages` -> `Build and deployment` -> `Source` to `GitHub Actions`.
+5. Push to `main` and wait for the `Deploy GitHub Pages` workflow to finish.
+6. Verify the final URL: `https://zhifan-zhou.github.io/`.
+
+If you keep this code in `Personal-Website`, the correct URL remains:
+
+```text
+https://zhifan-zhou.github.io/Personal-Website/
+```
+
 ## Deploy to Vercel
 
 1. Push this repository to GitHub.
@@ -57,38 +107,6 @@ npm run preview
 4. Keep the build command as `npm run build`.
 
 Because the app is static, it does not require environment variables, a backend server, or a database.
-
-## GitHub Pages Notes
-
-This project is configured for GitHub Pages through `.github/workflows/deploy.yml`.
-
-After pushing to `main`, GitHub Actions builds the static site and deploys the `out/` directory to:
-
-```text
-https://sky-alt-ux.github.io/Personal-Website/
-```
-
-In the repository settings, make sure:
-
-- `Settings` -> `Pages` -> `Build and deployment` -> `Source` is set to `GitHub Actions`
-- Actions are enabled for the repository
-
-The workflow builds with:
-
-```bash
-NEXT_PUBLIC_BASE_PATH=/Personal-Website npm run build
-```
-
-This makes Next.js links, scripts, styles, and public assets work under the GitHub Pages subpath.
-
-For manual static export:
-
-```bash
-npm install
-npm run build
-```
-
-The normal local and Vercel builds still use no base path.
 
 ## Editing Personal Data
 
@@ -102,7 +120,7 @@ Edit this file to update:
 
 - Name, school, degree, and positioning text
 - Email, GitHub, LinkedIn, and CV link
-- About text, research interests, skills, and News
+- About text, research interests, and News
 - Publications and project links
 - Education, projects, and work experience timeline entries
 - Contact text and location details
@@ -152,10 +170,6 @@ Each project supports:
 - `tags`
 - `links`
 
-## Add Future Writing Cards
-
-This version does not render a separate Writing page. If you add one later, keep writing data in `src/data/profile.ts` or a nearby data file, and avoid marking drafts as published until they are public.
-
 ## Update Resume Download
 
 1. Add the resume file at `public/resume.pdf`.
@@ -164,8 +178,9 @@ This version does not render a separate Writing page. If you add one later, keep
 
 ## Interaction Notes
 
-- The profile card includes a local browser view counter using `localStorage`; it does not require a backend.
+- Press `Cmd + K` on macOS or `Ctrl + K` on Windows/Linux to open the command palette.
+- The profile card includes a local browser Page Views counter using `localStorage`; it does not require a backend.
 - The language toggle stores EN/CN preference in `localStorage`.
 - The theme toggle stores light/dark preference in `localStorage`.
-- The contact form uses `mailto:`. For silent delivery directly to an inbox, connect a form provider or serverless function later.
-- The map uses an OpenStreetMap embed for Carnegie Mellon University.
+- The contact form uses `mailto:`.
+- The map uses an OpenStreetMap embed for the Carnegie Mellon / Pittsburgh area.

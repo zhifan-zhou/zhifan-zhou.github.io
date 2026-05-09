@@ -49,8 +49,8 @@ export type EducationEntry = {
   details: string[];
 };
 
-const email = "skyzhou06@163.com";
-const github = "https://github.com/Sky-alt-ux";
+const email = "skyzhou@andrew.cmu.edu";
+const github = "https://github.com/zhifan-zhou";
 const linkedin = "https://www.linkedin.com/in/zhifan-zhou-425ab6331/";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const withBasePath = (path: string) => `${basePath}${path}`;
@@ -168,21 +168,6 @@ export const siteCopy = {
         "AI for Machine Learning / Data Science",
         "Multimodal LLM Systems",
       ],
-      skillsTitle: "Languages & Skills",
-      skillGroups: [
-        {
-          title: "Programming",
-          items: ["Python", "C", "SQL", "JavaScript", "TypeScript"],
-        },
-        {
-          title: "Machine Learning & Data",
-          items: ["Pandas", "NumPy", "Matplotlib", "Data analysis"],
-        },
-        {
-          title: "Web & Tools",
-          items: ["React", "Next.js", "Tailwind CSS", "Git", "Linux"],
-        },
-      ],
       newsTitle: "News",
       showMore: "Show more",
       showLess: "Show less",
@@ -281,6 +266,27 @@ export const siteCopy = {
       submitLabel: "Send via email",
       mapTitle: "Carnegie Mellon University",
       locationLabel: "Location",
+      copyEmailLabel: "Copy email",
+      copiedEmailLabel: "Email copied",
+    },
+    commandPalette: {
+      title: "Command Palette",
+      placeholder: "Search pages, sections, and actions...",
+      hint: "Press Esc to close",
+      copiedEmail: "Email copied to clipboard.",
+      noResults: "No matching actions.",
+      actions: {
+        home: "Go to Home",
+        about: "Go to About",
+        research: "Go to Research",
+        news: "Go to News",
+        publications: "Go to Publications",
+        datamaster: "Go to DataMaster",
+        contact: "Go to Contact",
+        github: "Open GitHub",
+        copyEmail: "Copy Email",
+        toggleTheme: "Toggle Theme",
+      },
     },
   },
   zh: {
@@ -321,21 +327,6 @@ export const siteCopy = {
         "AI Agents",
         "AI for Machine Learning / Data Science",
         "Multimodal LLM Systems",
-      ],
-      skillsTitle: "语言与技能",
-      skillGroups: [
-        {
-          title: "编程",
-          items: ["Python", "C", "SQL", "JavaScript", "TypeScript"],
-        },
-        {
-          title: "机器学习与数据",
-          items: ["Pandas", "NumPy", "Matplotlib", "数据分析"],
-        },
-        {
-          title: "网页与工具",
-          items: ["React", "Next.js", "Tailwind CSS", "Git", "Linux"],
-        },
       ],
       newsTitle: "动态",
       showMore: "展开更多",
@@ -431,6 +422,27 @@ export const siteCopy = {
       submitLabel: "通过邮件发送",
       mapTitle: "卡耐基梅隆大学",
       locationLabel: "位置",
+      copyEmailLabel: "复制邮箱",
+      copiedEmailLabel: "已复制邮箱",
+    },
+    commandPalette: {
+      title: "命令面板",
+      placeholder: "搜索页面、版块或操作...",
+      hint: "按 Esc 关闭",
+      copiedEmail: "邮箱已复制到剪贴板。",
+      noResults: "没有匹配的操作。",
+      actions: {
+        home: "前往主页",
+        about: "前往关于我",
+        research: "前往研究兴趣",
+        news: "前往动态",
+        publications: "前往论文",
+        datamaster: "前往 DataMaster",
+        contact: "前往联系",
+        github: "打开 GitHub",
+        copyEmail: "复制邮箱",
+        toggleTheme: "切换主题",
+      },
     },
   },
 };

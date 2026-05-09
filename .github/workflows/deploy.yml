@@ -40,10 +40,17 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Configure GitHub Pages base path
+        run: |
+          repo_name="${GITHUB_REPOSITORY#*/}"
+          if [ "$repo_name" = "zhifan-zhou.github.io" ]; then
+            echo "NEXT_PUBLIC_BASE_PATH=" >> "$GITHUB_ENV"
+          else
+            echo "NEXT_PUBLIC_BASE_PATH=/$repo_name" >> "$GITHUB_ENV"
+          fi
+
       - name: Build
         run: npm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /Personal-Website
 
       - name: Disable Jekyll
         run: touch out/.nojekyll
