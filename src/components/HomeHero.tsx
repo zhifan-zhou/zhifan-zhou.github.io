@@ -1,12 +1,10 @@
 "use client";
 
 import { useState, type CSSProperties, type MouseEvent } from "react";
-import Link from "next/link";
 
 import { profile } from "@/data/profile";
 
 import { useLanguage } from "./LanguageProvider";
-import { LocalViewCounter } from "./LocalViewCounter";
 import { ProfilePhoto } from "./ProfilePhoto";
 import { SocialIconLink } from "./SocialIconLink";
 
@@ -38,23 +36,6 @@ export function HomeHero() {
         <p className="hero-eyebrow">{copy.home.eyebrow}</p>
         <h1 className="hero-title">{copy.home.title}</h1>
         <p className="hero-copy">{copy.home.positioning}</p>
-
-        <div className="hero-actions">
-          <Link href="/experiences#datamaster" className="primary-action">
-            DataMaster
-          </Link>
-          <Link href="/publications" className="secondary-action">
-            {copy.nav.publications}
-          </Link>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            className="secondary-action"
-          >
-            GitHub
-          </a>
-        </div>
       </div>
 
       <div className="hero-portrait-wrap">
@@ -62,17 +43,6 @@ export function HomeHero() {
         <div className="hero-social-row">
           {profile.socialLinks.map((link) => (
             <SocialIconLink key={link.key} link={link} />
-          ))}
-        </div>
-        <LocalViewCounter />
-      </div>
-
-      <div className="hero-focus-card" aria-label="Research focus">
-        <span>{copy.profile.role}</span>
-        <strong>{copy.profile.major}</strong>
-        <div>
-          {copy.home.researchInterests.map((interest) => (
-            <em key={interest}>{interest}</em>
           ))}
         </div>
       </div>

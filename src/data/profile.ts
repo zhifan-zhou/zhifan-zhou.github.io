@@ -11,7 +11,7 @@ export type SocialLink = {
   label: string;
   ariaLabel: string;
   isExternal?: boolean;
-  isPlaceholder?: boolean;
+  isUnavailable?: boolean;
   download?: boolean;
 };
 
@@ -104,8 +104,8 @@ export const profile = {
       key: "cv",
       label: "CV",
       href: resumeUrl,
-      ariaLabel: "Download CV placeholder",
-      isPlaceholder: true,
+      ariaLabel: "CV link will be updated",
+      isUnavailable: true,
       download: true,
     },
   ] satisfies SocialLink[],
@@ -116,15 +116,15 @@ const datamasterLinks: SocialLink[] = [
     key: "github",
     label: "GitHub",
     href: "#",
-    ariaLabel: "DataMaster GitHub link placeholder",
-    isPlaceholder: true,
+    ariaLabel: "DataMaster GitHub link will be updated",
+    isUnavailable: true,
   },
   {
     key: "cv",
     label: "Paper",
     href: "#",
-    ariaLabel: "DataMaster paper link placeholder",
-    isPlaceholder: true,
+    ariaLabel: "DataMaster paper link will be updated",
+    isUnavailable: true,
   },
 ];
 
@@ -159,39 +159,14 @@ export const siteCopy = {
         "Undergraduate student in Statistics and Machine Learning, interested in practical AI systems and research engineering.",
       aboutTitle: "About",
       about: [
-        "Welcome to my homepage! I am Zhifan Zhou, also known as Sky, an undergraduate student at Carnegie Mellon University studying Statistics and Machine Learning.",
-        "Outside academics, I enjoy basketball, badminton, table tennis, traveling, playing Go, and chatting with friends. I like building AI systems with the same practical mindset: clear goals, careful execution, and real people in mind.",
+        "I'm Zhifan (Sky) Zhou, an undergraduate at Carnegie Mellon University studying Statistics and Machine Learning. I'm interested in AI agents and agentic systems — specifically how LLMs can plan, use tools, and improve through iteration. Right now I'm working on DataMaster, an agentic data science system submitted to NeurIPS 2026.",
+        "Outside of research, I play basketball, badminton, and Go, and I spend too much time thinking about what makes AI systems actually useful.",
       ],
       researchTitle: "Research Interests",
       researchInterests: [
         "AI Agents",
         "AI for Machine Learning / Data Science",
         "Multimodal LLM Systems",
-      ],
-      newsTitle: "News",
-      showMore: "Show more",
-      showLess: "Show less",
-      news: [
-        {
-          date: "May 2026",
-          text: "Our paper DataMaster: Towards Autonomous Data Engineering for Machine Learning is submitted to NeurIPS 2026.",
-        },
-        {
-          date: "2026",
-          text: "Placeholder: add upcoming research, project, or collaboration updates here.",
-        },
-        {
-          date: "2026",
-          text: "Placeholder: add future academic or technical milestones here.",
-        },
-        {
-          date: "2025",
-          text: "Placeholder: add earlier coursework, project, or campus updates here.",
-        },
-        {
-          date: "2025",
-          text: "Placeholder: add selected notes, talks, or writing updates here.",
-        },
       ],
     },
     publications: {
@@ -217,11 +192,8 @@ export const siteCopy = {
         organization: "Carnegie Mellon University",
         period: "Undergraduate",
         description:
-          "Studying statistical reasoning, machine learning foundations, and computational methods.",
-        details: [
-          "Building a foundation in programming, statistics, linear algebra, and machine learning-related coursework.",
-          "Interested in rigorous evaluation, useful AI systems, and product-minded technical work.",
-        ],
+          "Coursework spans machine learning, statistics, linear algebra, and AI systems.",
+        details: [],
       } satisfies EducationEntry,
       projectsTitle: "Projects",
       projects: [
@@ -250,7 +222,7 @@ export const siteCopy = {
           summary:
             "Research role focused on AI systems and machine learning-related work.",
           details: [
-            "Detailed research responsibilities and outputs will be updated as the work develops.",
+            "Conducting research on agentic AI systems at the intersection of LLMs and automated machine learning.",
           ],
         },
       ] satisfies Experience[],
@@ -278,8 +250,6 @@ export const siteCopy = {
       actions: {
         home: "Go to Home",
         about: "Go to About",
-        research: "Go to Research",
-        news: "Go to News",
         publications: "Go to Publications",
         datamaster: "Go to DataMaster",
         contact: "Go to Contact",
@@ -319,39 +289,14 @@ export const siteCopy = {
         "统计与机器学习方向本科生，关注实用 AI 系统与研究工程。",
       aboutTitle: "关于我",
       about: [
-        "欢迎来到我的主页！我是 Zhifan Zhou，也常被称为 Sky，目前就读于卡耐基梅隆大学，主修统计与机器学习。",
-        "学习之外，我喜欢篮球、羽毛球、乒乓球、旅行、围棋，也喜欢和朋友聊天。我希望用同样务实的方式构建 AI 系统：目标清晰、执行认真，并真正面向人的需求。",
+        "我是 Zhifan (Sky) Zhou，目前在卡耐基梅隆大学读本科，学习统计与机器学习。我对 AI agents 和 agentic systems 很感兴趣，尤其关注 LLM 如何进行规划、使用工具，并在迭代中变得更好。现在我正在做 DataMaster，一个已投稿 NeurIPS 2026 的 agentic data science 系统。",
+        "研究之外，我打篮球、羽毛球，也下围棋；同时也经常想，什么样的 AI 系统才是真的有用。",
       ],
       researchTitle: "研究兴趣",
       researchInterests: [
         "AI Agents",
         "AI for Machine Learning / Data Science",
         "Multimodal LLM Systems",
-      ],
-      newsTitle: "动态",
-      showMore: "展开更多",
-      showLess: "收起",
-      news: [
-        {
-          date: "2026 年 5 月",
-          text: "我们的论文 DataMaster: Towards Autonomous Data Engineering for Machine Learning 已投稿 NeurIPS 2026。",
-        },
-        {
-          date: "2026",
-          text: "占位：之后可在这里补充新的研究、项目或合作动态。",
-        },
-        {
-          date: "2026",
-          text: "占位：之后可在这里补充新的学术或技术里程碑。",
-        },
-        {
-          date: "2025",
-          text: "占位：之后可在这里补充早期课程、项目或校园动态。",
-        },
-        {
-          date: "2025",
-          text: "占位：之后可在这里补充笔记、分享或写作动态。",
-        },
       ],
     },
     publications: {
@@ -376,11 +321,8 @@ export const siteCopy = {
         degree: "统计与机器学习本科",
         organization: "卡耐基梅隆大学",
         period: "本科阶段",
-        description: "学习统计推断、机器学习基础与计算方法。",
-        details: [
-          "系统打磨编程、统计、线性代数和机器学习相关基础。",
-          "关注严谨评估、实用 AI 系统，以及兼具产品意识的技术工作。",
-        ],
+        description: "课程覆盖机器学习、统计、线性代数与 AI 系统。",
+        details: [],
       } satisfies EducationEntry,
       projectsTitle: "项目",
       projects: [
@@ -407,7 +349,9 @@ export const siteCopy = {
             "School of Artificial Intelligence, Shanghai Jiao Tong University",
           period: "2026-Present",
           summary: "围绕 AI 系统与机器学习相关方向的研究经历。",
-          details: ["具体研究职责与产出会随着项目推进继续更新。"],
+          details: [
+            "开展 agentic AI systems 研究，关注 LLM 与自动化机器学习的交叉方向。",
+          ],
         },
       ] satisfies Experience[],
     },
@@ -434,8 +378,6 @@ export const siteCopy = {
       actions: {
         home: "前往主页",
         about: "前往关于我",
-        research: "前往研究兴趣",
-        news: "前往动态",
         publications: "前往论文",
         datamaster: "前往 DataMaster",
         contact: "前往联系",

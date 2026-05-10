@@ -7,12 +7,12 @@ type ExternalLinkProps = {
 };
 
 export function ExternalLink({ link, className }: ExternalLinkProps) {
-  if (link.isPlaceholder) {
+  if (link.isUnavailable) {
     return (
       <span
         aria-label={link.ariaLabel}
         aria-disabled="true"
-        title="Placeholder to replace later"
+        title="Link to be updated later"
         className={cn("placeholder-link", className)}
       >
         {link.label}

@@ -30,11 +30,13 @@ export function ExperiencesPageClient() {
           <div className="education-meta">
             <span>{education.period}</span>
           </div>
-          <ul>
-            {education.details.map((detail) => (
-              <li key={detail}>{detail}</li>
-            ))}
-          </ul>
+          {education.details.length ? (
+            <ul>
+              {education.details.map((detail) => (
+                <li key={detail}>{detail}</li>
+              ))}
+            </ul>
+          ) : null}
         </article>
       </section>
 

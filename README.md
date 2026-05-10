@@ -2,7 +2,7 @@
 
 A static personal academic homepage and interactive resume for Zhifan Zhou, an undergraduate student at Carnegie Mellon University studying Statistics and Machine Learning.
 
-The site uses routed pages for Home, Publications, Experiences, and Contact. It includes a cinematic profile hero, bilingual EN/CN content, light/dark theme switching, a local Page Views counter, expandable News, an interactive DataMaster workflow, a command palette, and a static contact form that opens the visitor's email client.
+The site uses routed pages for Home, Publications, Experiences, and Contact. It includes a cinematic profile hero, bilingual EN/CN content, light/dark theme switching, an interactive DataMaster workflow on the Experiences page, a command palette, and a static contact form that opens the visitor's email client.
 
 ## Current Profile Links
 
@@ -20,7 +20,7 @@ The site uses routed pages for Home, Publications, Experiences, and Contact. It 
 
 ## Pages
 
-- `/` — Home, portrait, About, research interests, and News
+- `/` — Home, portrait, social links, and About
 - `/publications` — DataMaster publication entry with review status
 - `/experiences` — Education, Projects, and Work Experiences with an interactive timeline
 - `/contact` — Contact dropbox, email/social links, and Carnegie Mellon map
@@ -91,7 +91,7 @@ Edit this file to update:
 
 - Name, school, degree, and positioning text
 - Email, GitHub, LinkedIn, and CV link
-- About text, research interests, and News
+- About text and research interests
 - Publications and project links
 - Education, projects, and work experience timeline entries
 - Contact text and location details
@@ -113,14 +113,13 @@ objectPosition: "44% 34%"
 
 Adjust that value if you replace the image later.
 
-## Replace Placeholder Links
+## Replace Draft Links
 
-Current placeholders to replace:
+Current draft links to replace:
 
 - `public/resume.pdf` for the CV download button
 - DataMaster GitHub link in `src/data/profile.ts`
 - DataMaster paper link in `src/data/profile.ts`
-- Placeholder News entries in `src/data/profile.ts`
 
 ## Add Future Publications
 
@@ -150,7 +149,6 @@ Each project supports:
 ## Interaction Notes
 
 - Press `Cmd + K` on macOS or `Ctrl + K` on Windows/Linux to open the command palette.
-- The hero includes a local browser Page Views counter using `localStorage`; it does not require a backend.
 - The language toggle stores EN/CN preference in `localStorage`.
 - The theme toggle stores light/dark preference in `localStorage`.
 - The contact form uses `mailto:`.

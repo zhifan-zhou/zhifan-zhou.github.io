@@ -55,20 +55,6 @@ export function CommandPalette() {
       run: () => router.push("/#about"),
     },
     {
-      id: "research",
-      label: copy.commandPalette.actions.research,
-      description: copy.home.researchTitle,
-      keywords: "research interests agents multimodal",
-      run: () => router.push("/#research"),
-    },
-    {
-      id: "news",
-      label: copy.commandPalette.actions.news,
-      description: copy.home.newsTitle,
-      keywords: "news updates",
-      run: () => router.push("/#news"),
-    },
-    {
       id: "publications",
       label: copy.commandPalette.actions.publications,
       description: copy.nav.publications,

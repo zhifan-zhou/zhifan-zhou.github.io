@@ -40,12 +40,12 @@ function SocialIcon({ type }: { type: SocialLink["key"] }) {
 }
 
 export function SocialIconLink({ link, className }: SocialIconLinkProps) {
-  if (link.isPlaceholder) {
+  if (link.isUnavailable) {
     return (
       <span
         aria-label={link.ariaLabel}
         aria-disabled="true"
-        title="Placeholder to replace later"
+        title="Link to be updated later"
         className={cn("social-icon-link social-icon-placeholder", className)}
       >
         <SocialIcon type={link.key} />
