@@ -116,7 +116,6 @@ export function ContactPageClient() {
               src="https://www.openstreetmap.org/export/embed.html?bbox=-79.9564%2C40.4354%2C-79.9325%2C40.4513&layer=mapnik&marker=40.4433%2C-79.9436"
               loading="lazy"
             />
-            <span className="map-pin-clean" aria-hidden="true" />
           </div>
         </aside>
       </div>

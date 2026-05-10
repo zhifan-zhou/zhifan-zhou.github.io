@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Allura } from "next/font/google";
 
 import "./globals.css";
 
@@ -6,6 +7,12 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 import { SiteFrame } from "@/components/SiteFrame";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { profile } from "@/data/profile";
+
+const allura = Allura({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-allura",
+});
 
 export const metadata: Metadata = {
   title: `${profile.name} | Academic Homepage`,
@@ -36,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" className={allura.variable} suppressHydrationWarning>
       <body>
         <ThemeProvider>
           <LanguageProvider>

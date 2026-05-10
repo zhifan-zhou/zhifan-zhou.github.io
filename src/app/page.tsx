@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
+
 import { HomeHero } from "@/components/HomeHero";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Reveal } from "@/components/Reveal";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const { copy } = useLanguage();
+  const [activeNewsIndex, setActiveNewsIndex] = useState(0);
 
   return (
     <div className="home-main">
@@ -35,13 +39,20 @@ export default function Home() {
         <p className="section-kicker">{copy.home.newsTitle}</p>
         <div className="news-list">
           {copy.home.news.map((item, index) => (
-            <article
+            <button
               key={item.text}
-              className={index === 0 ? "news-item news-item-latest" : "news-item news-item-muted"}
+              type="button"
+              className={cn(
+                "news-item",
+                index === activeNewsIndex
+                  ? "news-item-latest"
+                  : "news-item-muted",
+              )}
+              onClick={() => setActiveNewsIndex(index)}
             >
               <time>{item.date}</time>
               <p>{item.text}</p>
-            </article>
+            </button>
           ))}
         </div>
       </Reveal>

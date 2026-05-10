@@ -21,10 +21,7 @@ export function SiteNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-stone-200 bg-paper/90 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <Link
-          href="/"
-          className="text-base font-semibold text-stone-950 transition hover:text-sky-700"
-        >
+        <Link href="/" className="site-logo">
           {profile.shortName}
         </Link>
 

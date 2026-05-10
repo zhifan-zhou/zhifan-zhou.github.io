@@ -1,15 +1,18 @@
+import Image from "next/image";
+
 import { profile } from "@/data/profile";
 
 export function ProfilePhoto() {
   return (
-    <div
-      role="img"
-      aria-label={profile.photo.alt}
+    <Image
+      src={profile.photo.src}
+      alt={profile.photo.alt}
+      width={400}
+      height={500}
+      unoptimized
       className="profile-photo"
-      style={{
-        backgroundImage: `url(${profile.photo.src})`,
-        backgroundPosition: profile.photo.objectPosition,
-      }}
+      style={{ objectPosition: profile.photo.objectPosition }}
+      priority
     />
   );
 }

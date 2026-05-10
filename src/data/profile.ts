@@ -161,7 +161,7 @@ export const siteCopy = {
       eyebrow: "Carnegie Mellon University",
       title: "Zhifan Zhou",
       positioning:
-        "Undergraduate student in Statistics and Machine Learning, interested in practical AI systems and research engineering.",
+        "Undergraduate student in Statistics and Machine Learning, interested in AI agents.",
       aboutTitle: "About",
       about: [
         "I'm Zhifan Zhou (go by Sky), an undergraduate at Carnegie Mellon University studying Statistics and Machine Learning. I'm interested in AI agents and agentic systems — how LLMs can plan, use tools, and improve through iteration. My research sits at the intersection of language models and automated machine learning, and I care about building AI systems that are genuinely useful.",
@@ -211,8 +211,7 @@ export const siteCopy = {
         degree: "B.S. in Statistics and Machine Learning",
         organization: "Carnegie Mellon University",
         period: "2025–2029",
-        description:
-          "Coursework spans machine learning, statistics, linear algebra, and AI systems.",
+        description: "",
         details: [],
       } satisfies EducationEntry,
       projectsTitle: "Projects",
@@ -235,12 +234,12 @@ export const siteCopy = {
       workTitle: "Work Experiences",
       work: [
         {
-          title: "Researcher",
+          title: "Research Intern",
           organization:
             "School of Artificial Intelligence, Shanghai Jiao Tong University",
           period: "2026-Present",
           summary:
-            "Research role focused on AI systems and machine learning-related work.",
+            "Research role focused on AI agents and machine learning-related work.",
           details: [
             "Conducting research on agentic AI systems at the intersection of LLMs and automated machine learning.",
           ],
@@ -307,7 +306,7 @@ export const siteCopy = {
       eyebrow: "卡耐基梅隆大学",
       title: "周知凡",
       positioning:
-        "统计与机器学习方向本科生，关注实用 AI 系统与研究工程。",
+        "统计与机器学习方向本科生，关注 AI agents。",
       aboutTitle: "关于我",
       about: [
         "我是周知凡（别名叫 Sky），目前在卡耐基梅隆大学读本科，学习统计与机器学习。我对 AI agents 和 agentic systems 很感兴趣，尤其关注 LLM 如何进行规划、使用工具，并在迭代中变得更好。我的研究围绕语言模型与自动化机器学习的交叉展开，始终思考什么样的 AI 系统才是真的有用。",
@@ -357,7 +356,7 @@ export const siteCopy = {
         degree: "统计与机器学习本科",
         organization: "卡耐基梅隆大学",
         period: "2025–2029",
-        description: "课程覆盖机器学习、统计、线性代数与 AI 系统。",
+        description: "",
         details: [],
       } satisfies EducationEntry,
       projectsTitle: "项目",
@@ -380,11 +379,11 @@ export const siteCopy = {
       workTitle: "工作经历",
       work: [
         {
-          title: "Researcher",
+          title: "研究实习生",
           organization:
             "School of Artificial Intelligence, Shanghai Jiao Tong University",
           period: "2026-Present",
-          summary: "围绕 AI 系统与机器学习相关方向的研究经历。",
+          summary: "围绕 AI agents 与机器学习相关方向的研究经历。",
           details: [
             "开展 agentic AI systems 研究，关注 LLM 与自动化机器学习的交叉方向。",
           ],

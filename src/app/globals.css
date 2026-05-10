@@ -151,6 +151,16 @@ textarea:focus-visible {
 }
 
 @layer components {
+  .site-logo {
+    font-family: var(--font-allura), cursive;
+    @apply text-2xl transition;
+    color: var(--text);
+  }
+
+  .site-logo:hover {
+    color: var(--accent-strong);
+  }
+
   .nav-link {
     @apply relative px-2.5 py-2 text-sm font-medium text-stone-600 transition;
   }
@@ -212,12 +222,13 @@ textarea:focus-visible {
   }
 
   .profile-photo {
-    @apply aspect-[4/5] w-full bg-cover bg-no-repeat;
+    @apply aspect-[4/5] w-full object-contain;
     border-radius: 32% 18% 26% 14%;
     border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
     box-shadow:
       0 28px 80px rgba(0, 0, 0, 0.22),
       0 0 80px color-mix(in srgb, var(--accent) 12%, transparent);
+    background: color-mix(in srgb, var(--surface-strong) 40%, transparent);
   }
 
   .page-views-badge {
@@ -311,6 +322,7 @@ textarea:focus-visible {
 
   .hero-portrait-wrap .profile-photo {
     min-height: 330px;
+    object-fit: contain;
     transform: rotate(1.5deg);
     transition:
       transform 280ms ease,
@@ -622,7 +634,9 @@ textarea:focus-visible {
   }
 
   .news-item {
-    @apply grid gap-3 rounded-xl px-4 py-3 transition sm:grid-cols-[6rem_1fr];
+    @apply grid w-full gap-3 rounded-xl px-4 py-3 text-left transition sm:grid-cols-[6rem_1fr];
+    border: 0;
+    cursor: pointer;
   }
 
   .news-item-latest {
@@ -1102,6 +1116,7 @@ textarea:focus-visible {
 
   .hero-portrait-wrap .profile-photo {
     min-height: 280px;
+    object-fit: contain;
   }
 
   .flow-detail {

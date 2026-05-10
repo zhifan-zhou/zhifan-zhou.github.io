@@ -20,9 +20,11 @@ export function ExperiencesPageClient() {
               {education.organization}
             </p>
             <h3>{education.degree}</h3>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-stone-600">
-              {education.description}
-            </p>
+            {education.description ? (
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-stone-600">
+                {education.description}
+              </p>
+            ) : null}
           </div>
           <div className="education-meta">
             <span>{education.period}</span>
