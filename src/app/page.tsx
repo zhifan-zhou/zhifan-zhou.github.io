@@ -21,6 +21,30 @@ export default function Home() {
           ))}
         </div>
       </Reveal>
+
+      <Reveal className="content-section research-section">
+        <p className="section-kicker">{copy.home.researchTitle}</p>
+        <ul className="research-list">
+          {copy.home.researchInterests.map((interest) => (
+            <li key={interest}>{interest}</li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <Reveal className="content-section news-section">
+        <p className="section-kicker">{copy.home.newsTitle}</p>
+        <div className="news-list">
+          {copy.home.news.map((item, index) => (
+            <article
+              key={item.text}
+              className={index === 0 ? "news-item news-item-latest" : "news-item news-item-muted"}
+            >
+              <time>{item.date}</time>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </Reveal>
     </div>
   );
 }

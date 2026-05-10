@@ -254,57 +254,30 @@ textarea:focus-visible {
   .hero-cinematic {
     position: relative;
     display: grid;
-    min-height: clamp(680px, 82vh, 860px);
-    gap: 2rem;
-    overflow: hidden;
+    min-height: clamp(480px, 72vh, 740px);
+    gap: 2.5rem;
     isolation: isolate;
-    padding: clamp(2rem, 5vw, 5rem);
-    border-radius: 42px;
-    background:
-      radial-gradient(circle at var(--hero-x, 58%) var(--hero-y, 36%), color-mix(in srgb, var(--accent) 24%, transparent), transparent 22rem),
-      radial-gradient(circle at 82% 18%, color-mix(in srgb, #a78bfa 18%, transparent), transparent 24rem),
-      linear-gradient(135deg, color-mix(in srgb, var(--surface-strong) 68%, transparent), color-mix(in srgb, var(--surface) 20%, transparent));
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(24px);
-  }
-
-  .hero-cinematic::before {
-    position: absolute;
-    inset: 1px;
-    z-index: -2;
-    content: "";
-    border-radius: inherit;
-    background:
-      linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 20%, transparent 80%, rgba(255, 255, 255, 0.08)),
-      linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.1));
+    padding: clamp(1.5rem, 4vw, 4rem);
+    padding-top: clamp(2rem, 5vw, 5rem);
+    align-items: start;
   }
 
   .hero-ambient {
     position: absolute;
-    inset: -20%;
-    z-index: -3;
+    inset: -10%;
+    z-index: -2;
     background:
-      radial-gradient(circle at 18% 30%, color-mix(in srgb, var(--accent) 25%, transparent), transparent 26rem),
-      radial-gradient(circle at 76% 70%, color-mix(in srgb, #d6a64f 14%, transparent), transparent 24rem);
-    filter: blur(10px);
+      radial-gradient(circle at 18% 30%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 22rem),
+      radial-gradient(circle at 76% 60%, color-mix(in srgb, #a78bfa 10%, transparent), transparent 20rem);
+    filter: blur(20px);
     animation: ambient-float 16s ease-in-out infinite alternate;
-  }
-
-  .hero-noise {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    opacity: 0.42;
-    background-image:
-      linear-gradient(120deg, transparent 0 44%, color-mix(in srgb, var(--accent) 18%, transparent) 45%, transparent 46%),
-      radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--foreground) 8%, transparent) 1px, transparent 1px);
-    background-size: 100% 100%, 18px 18px;
-    mask-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), transparent 72%);
+    pointer-events: none;
   }
 
   .hero-content {
-    @apply relative self-end;
+    position: relative;
     max-width: 760px;
+    align-self: start;
   }
 
   .hero-eyebrow {
@@ -313,53 +286,31 @@ textarea:focus-visible {
   }
 
   .hero-title {
-    @apply mt-5 text-6xl font-semibold leading-[0.86] sm:text-7xl lg:text-8xl;
+    @apply mt-4 text-5xl font-semibold leading-[0.92] sm:text-6xl lg:text-7xl;
     color: var(--text);
     text-wrap: balance;
+    letter-spacing: -0.02em;
   }
 
   .hero-copy {
-    @apply mt-6 max-w-2xl text-lg leading-8 sm:text-xl;
+    @apply mt-5 max-w-xl text-base leading-7 sm:text-lg sm:leading-8;
     color: var(--muted);
+    text-wrap: balance;
   }
 
-  .hero-actions {
-    @apply mt-9 flex flex-wrap gap-3;
-  }
-
-  .primary-action,
-  .secondary-action {
-    @apply inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition;
-  }
-
-  .primary-action {
-    color: #031019;
-    background: linear-gradient(135deg, #67e8f9, #60a5fa 52%, #c4b5fd);
-    box-shadow: 0 18px 44px color-mix(in srgb, var(--accent) 22%, transparent);
-  }
-
-  .primary-action:hover,
-  .secondary-action:hover {
-    transform: translateY(-2px);
-  }
-
-  .secondary-action {
-    color: var(--text);
-    background: color-mix(in srgb, var(--surface-strong) 66%, transparent);
-  }
-
-  .secondary-action:hover {
-    color: var(--accent-strong);
-    box-shadow: 0 12px 34px color-mix(in srgb, var(--accent) 12%, transparent);
+  .hero-social-row {
+    @apply mt-7 flex flex-wrap items-center gap-3;
   }
 
   .hero-portrait-wrap {
-    @apply relative flex flex-col items-start gap-4 self-end justify-self-start;
-    width: min(100%, 320px);
+    @apply relative flex flex-col items-start;
+    width: min(100%, 260px);
+    align-self: start;
+    justify-self: end;
   }
 
   .hero-portrait-wrap .profile-photo {
-    min-height: 400px;
+    min-height: 330px;
     transform: rotate(1.5deg);
     transition:
       transform 280ms ease,
@@ -373,53 +324,9 @@ textarea:focus-visible {
       0 0 110px color-mix(in srgb, var(--accent) 18%, transparent);
   }
 
-  .hero-social-row {
-    @apply flex flex-wrap items-center gap-3;
-  }
-
-  .hero-focus-card {
-    @apply self-end justify-self-start rounded-[2rem] p-5;
-    width: min(100%, 360px);
-    color: var(--text);
-    background:
-      linear-gradient(135deg, color-mix(in srgb, var(--surface-strong) 68%, transparent), color-mix(in srgb, var(--surface) 28%, transparent)),
-      radial-gradient(circle at 8% 0%, var(--accent-soft), transparent 45%);
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.14);
-    backdrop-filter: blur(18px);
-  }
-
-  .hero-focus-card span {
-    @apply text-xs font-semibold uppercase tracking-[0.22em];
-    color: var(--quiet);
-  }
-
-  .hero-focus-card strong {
-    @apply mt-3 block text-xl leading-7;
-  }
-
-  .hero-focus-card div {
-    @apply mt-5 flex flex-wrap gap-2;
-  }
-
-  .hero-focus-card em {
-    @apply rounded-full px-3 py-1 text-xs not-italic;
-    color: var(--muted);
-    background: color-mix(in srgb, var(--surface-strong) 70%, transparent);
-  }
-
   @media (min-width: 920px) {
     .hero-cinematic {
-      grid-template-columns: minmax(0, 1fr) 340px;
-      grid-template-rows: 1fr auto;
-      align-items: end;
-    }
-
-    .hero-content {
-      grid-row: 1 / 3;
-    }
-
-    .hero-focus-card {
-      justify-self: end;
+      grid-template-columns: minmax(0, 1fr) 280px;
     }
 
     .hero-portrait-wrap {
@@ -462,6 +369,34 @@ textarea:focus-visible {
   .about-copy {
     @apply space-y-5 text-lg leading-9;
     color: var(--muted);
+  }
+
+  .research-section {
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)];
+  }
+
+  .research-list {
+    @apply flex flex-wrap gap-3;
+    list-style: none;
+    padding: 0;
+  }
+
+  .research-list li {
+    @apply rounded-full px-5 py-2.5 text-sm font-medium transition;
+    color: var(--muted);
+    background: color-mix(in srgb, var(--surface-strong) 58%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  }
+
+  .research-list li:hover {
+    color: var(--text);
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+
+  .news-section {
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)];
   }
 
   .text-link {
@@ -683,21 +618,17 @@ textarea:focus-visible {
   }
 
   .news-list {
-    @apply relative space-y-2;
-  }
-
-  .news-list::before {
-    display: none;
+    @apply space-y-1;
   }
 
   .news-item {
-    @apply grid gap-4 rounded-[1.25rem] px-4 py-3 transition sm:grid-cols-[7rem_1fr];
+    @apply grid gap-3 rounded-xl px-4 py-3 transition sm:grid-cols-[6rem_1fr];
   }
 
   .news-item-latest {
     background:
-      radial-gradient(circle at 0% 0%, var(--accent-soft), transparent 18rem),
-      color-mix(in srgb, var(--surface-strong) 56%, transparent);
+      radial-gradient(circle at 0% 0%, var(--accent-soft), transparent 16rem),
+      color-mix(in srgb, var(--surface-strong) 48%, transparent);
   }
 
   .news-item time {
@@ -706,16 +637,12 @@ textarea:focus-visible {
   }
 
   .news-item p {
-    @apply relative text-sm leading-7;
+    @apply text-sm leading-7;
     color: var(--muted);
   }
 
-  .news-item p::before {
-    display: none;
-  }
-
   .news-item-muted {
-    opacity: 0.68;
+    opacity: 0.72;
   }
 
   .news-item-muted:hover {
@@ -1160,16 +1087,21 @@ textarea:focus-visible {
   }
 
   .hero-cinematic {
-    @apply rounded-[1.75rem] p-6;
+    @apply p-5;
     min-height: auto;
+    gap: 2rem;
   }
 
   .hero-title {
-    @apply text-5xl;
+    @apply text-4xl;
+  }
+
+  .hero-portrait-wrap {
+    width: min(100%, 220px);
   }
 
   .hero-portrait-wrap .profile-photo {
-    min-height: 320px;
+    min-height: 280px;
   }
 
   .flow-detail {

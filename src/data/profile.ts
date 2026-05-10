@@ -41,6 +41,11 @@ export type ProjectEntry = {
   links: SocialLink[];
 };
 
+export type NewsItem = {
+  date: string;
+  text: string;
+};
+
 export type EducationEntry = {
   degree: string;
   organization: string;
@@ -57,8 +62,8 @@ const withBasePath = (path: string) => `${basePath}${path}`;
 const resumeUrl = withBasePath("/resume.pdf");
 
 export const profile = {
-  name: "Zhifan Zhou",
-  shortName: "Zhifan Zhou",
+  name: "Zhifan (Sky) Zhou",
+  shortName: "Zhifan (Sky) Zhou",
   school: "Carnegie Mellon University",
   schoolAddress: "5000 Forbes Ave, Pittsburgh, PA 15213",
   degree: "B.S. in Statistics and Machine Learning",
@@ -154,12 +159,12 @@ export const siteCopy = {
     },
     home: {
       eyebrow: "Carnegie Mellon University",
-      title: "Zhifan Zhou",
+      title: "Zhifan (Sky) Zhou",
       positioning:
         "Undergraduate student in Statistics and Machine Learning, interested in practical AI systems and research engineering.",
       aboutTitle: "About",
       about: [
-        "I'm Zhifan (Sky) Zhou, an undergraduate at Carnegie Mellon University studying Statistics and Machine Learning. I'm interested in AI agents and agentic systems — specifically how LLMs can plan, use tools, and improve through iteration. Right now I'm working on DataMaster, an agentic data science system submitted to NeurIPS 2026.",
+        "I'm Zhifan (Sky) Zhou, an undergraduate at Carnegie Mellon University studying Statistics and Machine Learning. I'm interested in AI agents and agentic systems — how LLMs can plan, use tools, and improve through iteration. My research sits at the intersection of language models and automated machine learning, and I care about building AI systems that are genuinely useful.",
         "Outside of research, I play basketball, badminton, and Go, and I spend too much time thinking about what makes AI systems actually useful.",
       ],
       researchTitle: "Research Interests",
@@ -167,6 +172,21 @@ export const siteCopy = {
         "AI Agents",
         "AI for Machine Learning / Data Science",
         "Multimodal LLM Systems",
+      ],
+      newsTitle: "News",
+      news: [
+        {
+          date: "2026",
+          text: "Started as a Researcher at the School of Artificial Intelligence, Shanghai Jiao Tong University, working on agentic AI systems.",
+        },
+        {
+          date: "2026",
+          text: "DataMaster submitted to NeurIPS 2026 — an agentic data science system for automated ML experimentation.",
+        },
+        {
+          date: "2025",
+          text: "Started undergraduate studies in Statistics and Machine Learning at Carnegie Mellon University.",
+        },
       ],
     },
     publications: {
@@ -190,7 +210,7 @@ export const siteCopy = {
       education: {
         degree: "B.S. in Statistics and Machine Learning",
         organization: "Carnegie Mellon University",
-        period: "Undergraduate",
+        period: "2025–2029",
         description:
           "Coursework spans machine learning, statistics, linear algebra, and AI systems.",
         details: [],
@@ -256,6 +276,7 @@ export const siteCopy = {
         github: "Open GitHub",
         copyEmail: "Copy Email",
         toggleTheme: "Toggle Theme",
+        switchLanguage: "Switch Language",
       },
     },
   },
@@ -284,19 +305,34 @@ export const siteCopy = {
     },
     home: {
       eyebrow: "卡耐基梅隆大学",
-      title: "Zhifan Zhou",
+      title: "周知凡",
       positioning:
         "统计与机器学习方向本科生，关注实用 AI 系统与研究工程。",
       aboutTitle: "关于我",
       about: [
-        "我是 Zhifan (Sky) Zhou，目前在卡耐基梅隆大学读本科，学习统计与机器学习。我对 AI agents 和 agentic systems 很感兴趣，尤其关注 LLM 如何进行规划、使用工具，并在迭代中变得更好。现在我正在做 DataMaster，一个已投稿 NeurIPS 2026 的 agentic data science 系统。",
-        "研究之外，我打篮球、羽毛球，也下围棋；同时也经常想，什么样的 AI 系统才是真的有用。",
+        "我是周知凡（Zhifan / Sky），目前在卡耐基梅隆大学读本科，学习统计与机器学习。我对 AI agents 和 agentic systems 很感兴趣，尤其关注 LLM 如何进行规划、使用工具，并在迭代中变得更好。我的研究围绕语言模型与自动化机器学习的交叉展开，始终思考什么样的 AI 系统才是真的有用。",
+        "研究之外，我打篮球、羽毛球，也下围棋；同时也喜欢琢磨技术产品与用户体验。",
       ],
       researchTitle: "研究兴趣",
       researchInterests: [
         "AI Agents",
         "AI for Machine Learning / Data Science",
         "Multimodal LLM Systems",
+      ],
+      newsTitle: "动态",
+      news: [
+        {
+          date: "2026",
+          text: "加入上海交通大学人工智能学院担任研究员，从事 agentic AI systems 相关研究。",
+        },
+        {
+          date: "2026",
+          text: "DataMaster 已投稿 NeurIPS 2026 —— 面向自动化机器学习实验的 agentic data science 系统。",
+        },
+        {
+          date: "2025",
+          text: "入学卡耐基梅隆大学，攻读统计与机器学习本科学位。",
+        },
       ],
     },
     publications: {
@@ -320,7 +356,7 @@ export const siteCopy = {
       education: {
         degree: "统计与机器学习本科",
         organization: "卡耐基梅隆大学",
-        period: "本科阶段",
+        period: "2025–2029",
         description: "课程覆盖机器学习、统计、线性代数与 AI 系统。",
         details: [],
       } satisfies EducationEntry,
@@ -384,6 +420,7 @@ export const siteCopy = {
         github: "打开 GitHub",
         copyEmail: "复制邮箱",
         toggleTheme: "切换主题",
+        switchLanguage: "切换语言",
       },
     },
   },

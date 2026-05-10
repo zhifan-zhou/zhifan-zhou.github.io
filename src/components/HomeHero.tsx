@@ -24,27 +24,29 @@ export function HomeHero() {
     <section
       className="hero-cinematic"
       onMouseMove={handleMouseMove}
-      style={{
-        "--hero-x": `${spotlight.x}%`,
-        "--hero-y": `${spotlight.y}%`,
-      } as CSSProperties}
+      style={
+        {
+          "--hero-x": `${spotlight.x}%`,
+          "--hero-y": `${spotlight.y}%`,
+        } as CSSProperties
+      }
     >
       <div className="hero-ambient" aria-hidden="true" />
-      <div className="hero-noise" aria-hidden="true" />
 
       <div className="hero-content">
         <p className="hero-eyebrow">{copy.home.eyebrow}</p>
         <h1 className="hero-title">{copy.home.title}</h1>
         <p className="hero-copy">{copy.home.positioning}</p>
-      </div>
 
-      <div className="hero-portrait-wrap">
-        <ProfilePhoto />
         <div className="hero-social-row">
           {profile.socialLinks.map((link) => (
             <SocialIconLink key={link.key} link={link} />
           ))}
         </div>
+      </div>
+
+      <div className="hero-portrait-wrap">
+        <ProfilePhoto />
       </div>
     </section>
   );

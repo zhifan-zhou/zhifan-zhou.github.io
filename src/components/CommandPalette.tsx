@@ -19,7 +19,7 @@ type PaletteAction = {
 
 export function CommandPalette() {
   const router = useRouter();
-  const { copy } = useLanguage();
+  const { copy, locale, toggleLocale } = useLanguage();
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -95,6 +95,13 @@ export function CommandPalette() {
       description: theme === "dark" ? copy.theme.light : copy.theme.dark,
       keywords: "theme dark light mode",
       run: () => setTheme(theme === "dark" ? "light" : "dark"),
+    },
+    {
+      id: "switch-language",
+      label: copy.commandPalette.actions.switchLanguage,
+      description: locale === "en" ? "中文" : "English",
+      keywords: "language switch chinese english 中文",
+      run: () => toggleLocale(),
     },
   ];
 
