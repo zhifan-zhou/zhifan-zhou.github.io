@@ -7,6 +7,7 @@ import { profile } from "@/data/profile";
 import { useLanguage } from "./LanguageProvider";
 import { ProfilePhoto } from "./ProfilePhoto";
 import { SocialIconLink } from "./SocialIconLink";
+import { TypeReveal } from "./TypeReveal";
 
 export function HomeHero() {
   const { copy } = useLanguage();
@@ -36,7 +37,7 @@ export function HomeHero() {
       <div className="hero-content">
         <p className="hero-eyebrow">{copy.home.eyebrow}</p>
         <h1 className="hero-title">{copy.home.title}</h1>
-        <p className="hero-copy">{copy.home.positioning}</p>
+        <TypeReveal text={copy.home.positioning} className="hero-copy" />
 
         <div className="hero-social-row">
           {profile.socialLinks.map((link) => (

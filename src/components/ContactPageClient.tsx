@@ -86,7 +86,7 @@ export function ContactPageClient() {
             </p>
             <a
               href={`mailto:${profile.email}`}
-              className="mt-4 inline-flex text-sm font-medium text-sky-700 underline decoration-sky-700/25 underline-offset-4 hover:text-sky-900"
+              className="mt-4 inline-flex text-sm font-medium text-sky-700 underline decoration-sky-700/25 underline-offset-4 hover:text-sky-800"
             >
               {profile.email}
             </a>

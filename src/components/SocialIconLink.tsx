@@ -1,5 +1,6 @@
 import type { SocialLink } from "@/data/profile";
 
+import { useMagneticEffect } from "@/hooks/useMagneticEffect";
 import { cn } from "@/lib/utils";
 
 type SocialIconLinkProps = {
@@ -40,9 +41,12 @@ function SocialIcon({ type }: { type: SocialLink["key"] }) {
 }
 
 export function SocialIconLink({ link, className }: SocialIconLinkProps) {
+  const { ref } = useMagneticEffect();
+
   if (link.isUnavailable) {
     return (
       <span
+        ref={ref as React.RefObject<HTMLSpanElement>}
         aria-label={link.ariaLabel}
         aria-disabled="true"
         title="Link to be updated later"
@@ -56,6 +60,7 @@ export function SocialIconLink({ link, className }: SocialIconLinkProps) {
 
   return (
     <a
+      ref={ref as React.RefObject<HTMLAnchorElement>}
       href={link.href}
       aria-label={link.ariaLabel}
       target={link.isExternal ? "_blank" : undefined}
