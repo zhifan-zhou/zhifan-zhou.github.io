@@ -120,16 +120,16 @@ const datamasterLinks: SocialLink[] = [
   {
     key: "github",
     label: "GitHub",
-    href: "#",
-    ariaLabel: "DataMaster GitHub link will be updated",
-    isUnavailable: true,
+    href: "https://github.com/sjtu-sai-agents/DataMaster",
+    ariaLabel: "View DataMaster on GitHub",
+    isExternal: true,
   },
   {
     key: "cv",
     label: "Paper",
-    href: "#",
-    ariaLabel: "DataMaster paper link will be updated",
-    isUnavailable: true,
+    href: "https://arxiv.org/abs/2605.10906",
+    ariaLabel: "Read DataMaster paper on arXiv",
+    isExternal: true,
   },
 ];
 

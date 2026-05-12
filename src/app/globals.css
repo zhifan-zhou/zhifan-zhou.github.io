@@ -331,6 +331,11 @@ textarea:focus-visible {
     @apply mb-12 scroll-mt-28;
   }
 
+  .content-section + .content-section {
+    border-top: 1px solid var(--grid);
+    padding-top: 2.5rem;
+  }
+
   .section-title {
     @apply mb-6 text-2xl font-bold tracking-tight;
     color: var(--text);
@@ -361,9 +366,20 @@ textarea:focus-visible {
   }
 
   .section-number {
-    @apply block font-mono text-xs font-medium tracking-wider;
+    @apply relative block pl-3 font-mono text-xs font-medium tracking-wider;
     color: var(--quiet);
     animation: count-up 0.4s ease forwards;
+  }
+
+  .section-number::before {
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    width: 4px;
+    height: 4px;
+    content: "";
+    border-radius: 50%;
+    background: var(--accent);
   }
 
   .section-heading-row {
@@ -382,7 +398,7 @@ textarea:focus-visible {
 
   /* ---- About ---------------------------------------------------------- */
   .about-section {
-    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)];
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)] md:items-start;
   }
 
   .about-copy {
@@ -392,7 +408,7 @@ textarea:focus-visible {
 
   /* ---- Research ------------------------------------------------------- */
   .research-section {
-    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)];
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)] md:items-start;
   }
 
   .research-list {
@@ -402,7 +418,7 @@ textarea:focus-visible {
   }
 
   .research-pill {
-    @apply rounded-full px-5 py-2.5 text-sm font-medium transition;
+    @apply rounded-full px-3.5 py-1.5 text-sm font-medium transition;
     color: var(--muted);
     background: color-mix(in srgb, var(--surface-strong) 58%, transparent);
     border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
@@ -418,7 +434,7 @@ textarea:focus-visible {
 
   /* ---- News ----------------------------------------------------------- */
   .news-section {
-    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)];
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)] md:items-start;
   }
 
   .text-link {
