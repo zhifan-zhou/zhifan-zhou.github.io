@@ -408,7 +408,7 @@ textarea:focus-visible {
   }
 
   .research-list {
-    @apply mt-0 flex flex-wrap items-center gap-4;
+    @apply mt-4 flex flex-wrap items-center gap-4;
     list-style: none;
     padding: 0;
   }
