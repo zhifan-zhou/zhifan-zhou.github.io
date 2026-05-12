@@ -195,7 +195,8 @@ export const siteCopy = {
         {
           title:
             "DataMaster: Towards Autonomous Data Engineering for Machine Learning",
-          authors: "Zhifan Zhou",
+          authors:
+            "Yaxin Du, Xiyuan Yang, <strong>Zhifan Zhou</strong>, Wanxu Liu, Zixing Lei, Zimeng Chen, Fenyi Liu, Haotian Wu, Yuzhu Cai, Zexi Liu, Xinyu Zhu, Wenhao Wang, Linfeng Zhang, Chen Qian, Siheng Chen",
           venue: "NeurIPS 2026",
           status: "Under Review",
           description:
@@ -340,7 +341,8 @@ export const siteCopy = {
         {
           title:
             "DataMaster: Towards Autonomous Data Engineering for Machine Learning",
-          authors: "Zhifan Zhou",
+          authors:
+            "Yaxin Du, Xiyuan Yang, <strong>Zhifan Zhou</strong>, Wanxu Liu, Zixing Lei, Zimeng Chen, Fenyi Liu, Haotian Wu, Yuzhu Cai, Zexi Liu, Xinyu Zhu, Wenhao Wang, Linfeng Zhang, Chen Qian, Siheng Chen",
           venue: "NeurIPS 2026",
           status: "Under Review",
           description:

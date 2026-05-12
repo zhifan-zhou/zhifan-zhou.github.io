@@ -16,9 +16,10 @@ export function PublicationList({
             <h2 className="text-2xl font-semibold leading-tight text-stone-950">
               {publication.title}
             </h2>
-            <p className="mt-2 text-sm text-stone-600">
-              {publication.authors}
-            </p>
+            <p
+              className="mt-2 text-sm text-stone-600"
+              dangerouslySetInnerHTML={{ __html: publication.authors }}
+            />
             <p className="mt-2 text-sm font-medium text-sky-800">
               {publication.venue}
             </p>
