@@ -402,18 +402,19 @@ textarea:focus-visible {
   }
 
   /* ---- Research ------------------------------------------------------- */
+/* ---- Research ------------------------------------------------------- */
   .research-section {
-    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)] md:items-start;
+    @apply grid gap-8 md:grid-cols-[260px_minmax(0,1fr)] md:items-center;
   }
 
   .research-list {
-    @apply mt-2 flex flex-wrap gap-3;
+    @apply mt-0 flex flex-wrap items-center gap-4;
     list-style: none;
     padding: 0;
   }
 
   .research-pill {
-    @apply rounded-full px-3.5 py-1.5 text-sm font-medium transition;
+    @apply rounded-full px-5 py-2 text-sm font-medium transition;
     color: var(--muted);
     background: color-mix(in srgb, var(--surface-strong) 58%, transparent);
     border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
@@ -425,6 +426,7 @@ textarea:focus-visible {
     color: var(--text);
     border-color: var(--border-strong);
     box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
   }
 
   /* ---- News ----------------------------------------------------------- */
