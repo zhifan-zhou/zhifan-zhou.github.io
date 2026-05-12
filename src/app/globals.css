@@ -331,11 +331,6 @@ textarea:focus-visible {
     @apply mb-12 scroll-mt-28;
   }
 
-  .content-section + .content-section {
-    border-top: 1px solid var(--grid);
-    padding-top: 2.5rem;
-  }
-
   .section-title {
     @apply mb-6 text-2xl font-bold tracking-tight;
     color: var(--text);
@@ -398,7 +393,7 @@ textarea:focus-visible {
 
   /* ---- About ---------------------------------------------------------- */
   .about-section {
-    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)] md:items-start;
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)];
   }
 
   .about-copy {
@@ -412,7 +407,7 @@ textarea:focus-visible {
   }
 
   .research-list {
-    @apply flex flex-wrap gap-3;
+    @apply mt-2 flex flex-wrap gap-3;
     list-style: none;
     padding: 0;
   }
@@ -434,7 +429,7 @@ textarea:focus-visible {
 
   /* ---- News ----------------------------------------------------------- */
   .news-section {
-    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)] md:items-start;
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,760px)];
   }
 
   .text-link {
