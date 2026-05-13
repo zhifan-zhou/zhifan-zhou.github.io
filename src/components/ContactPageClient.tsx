@@ -77,18 +77,19 @@ export function ContactPageClient() {
 
         <aside className="contact-info-panel">
           <div className="contact-info-copy">
-            <p className="text-sm font-medium text-sky-800">
+            <p className="text-sm font-medium" style={{ color: 'var(--accent-strong)' }}>
               {copy.contact.locationLabel}
             </p>
-            <h2 className="mt-2 text-2xl font-semibold text-stone-950">
+            <h2 className="mt-2 text-2xl font-semibold" style={{ color: 'var(--text)' }}>
               {copy.contact.mapTitle}
             </h2>
-            <p className="mt-3 text-sm leading-6 text-stone-600">
+            <p className="mt-3 text-sm leading-6" style={{ color: 'var(--muted)' }}>
               {profile.schoolAddress}
             </p>
             <a
               href={`mailto:${profile.email}`}
-              className="mt-4 inline-flex text-sm font-medium text-sky-700 underline decoration-sky-700/25 underline-offset-4 hover:text-sky-800"
+              className="mt-4 inline-flex text-sm font-medium underline underline-offset-4 transition"
+              style={{ color: 'var(--accent-strong)', textDecorationColor: 'color-mix(in srgb, var(--accent) 35%, transparent)' }}
             >
               {profile.email}
             </a>

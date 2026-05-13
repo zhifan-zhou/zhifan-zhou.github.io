@@ -16,12 +16,12 @@ export function ExperiencesPageClient() {
         <h2 className="section-title">{copy.experiences.educationTitle}</h2>
         <article className="education-panel">
           <div>
-            <p className="text-sm font-medium text-sky-800">
+            <p className="text-sm font-medium" style={{ color: 'var(--accent-strong)' }}>
               {education.organization}
             </p>
             <h3>{education.degree}</h3>
             {education.description ? (
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-stone-600">
+              <p className="mt-3 max-w-2xl text-sm leading-7" style={{ color: 'var(--muted)' }}>
                 {education.description}
               </p>
             ) : null}

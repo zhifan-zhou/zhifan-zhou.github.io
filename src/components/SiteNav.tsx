@@ -19,7 +19,7 @@ export function SiteNav() {
       : pathname;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-stone-200 bg-paper/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b backdrop-blur" style={{ borderColor: 'var(--border)', background: 'color-mix(in srgb, var(--background) 92%, transparent)' }}>
       <nav className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
         <Link href="/" className="site-logo">
           {profile.shortName}

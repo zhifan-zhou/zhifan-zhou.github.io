@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Allura } from "next/font/google";
+import { Allura, Newsreader } from "next/font/google";
 
 import "./globals.css";
 
@@ -12,6 +12,13 @@ const allura = Allura({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-allura",
+});
+
+const newsreader = Newsreader({
+  weight: "variable",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
 });
 
 export const metadata: Metadata = {
@@ -43,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" className={allura.variable} suppressHydrationWarning>
+    <html lang="en" data-theme="dark" className={`${allura.variable} ${newsreader.variable}`} suppressHydrationWarning>
       <body>
         <ThemeProvider>
           <LanguageProvider>

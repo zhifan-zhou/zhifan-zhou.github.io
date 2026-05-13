@@ -31,7 +31,7 @@ export function ExperienceTimeline({
               <span className="block text-sm font-semibold">
                 {experience.title}
               </span>
-              <span className="block text-xs text-stone-500">
+              <span className="block text-xs" style={{ color: 'var(--quiet)' }}>
                 {experience.period}
               </span>
             </span>
@@ -41,19 +41,19 @@ export function ExperienceTimeline({
 
       {activeExperience ? (
         <article className="timeline-detail">
-          <p className="text-sm font-medium text-sky-800">
+          <p className="text-sm font-medium" style={{ color: 'var(--accent-strong)' }}>
             {activeExperience.organization}
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-stone-950">
+          <h2 className="mt-2 text-2xl font-semibold" style={{ color: 'var(--text)' }}>
             {activeExperience.title}
           </h2>
-          <p className="mt-3 leading-7 text-stone-600">
+          <p className="mt-3 leading-7" style={{ color: 'var(--muted)' }}>
             {activeExperience.summary}
           </p>
-          <ul className="mt-5 space-y-3 text-sm leading-7 text-stone-600">
+          <ul className="mt-5 space-y-3 text-sm leading-7" style={{ color: 'var(--muted)' }}>
             {activeExperience.details.map((detail) => (
               <li key={detail} className="flex gap-3">
-                <span className="mt-3 h-px w-5 shrink-0 bg-sky-300" />
+                <span className="mt-3 h-px w-5 shrink-0" style={{ background: 'var(--accent)' }} />
                 <span>{detail}</span>
               </li>
             ))}

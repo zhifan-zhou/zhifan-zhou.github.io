@@ -2,28 +2,30 @@
 
 @theme {
   --color-paper: #f8f3ea;
+  --font-heading: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
 }
 
 :root {
   color-scheme: light;
   --background: #f7f5f0;
   --foreground: #1c1c1a;
-  --surface: rgba(255, 255, 255, 0.62);
-  --surface-strong: rgba(255, 255, 255, 0.80);
-  --surface-muted: rgba(248, 246, 240, 0.70);
-  --border: rgba(120, 100, 70, 0.14);
-  --border-strong: rgba(180, 83, 9, 0.24);
+  --surface: rgba(255, 255, 255, 0.66);
+  --surface-strong: rgba(255, 255, 255, 0.84);
+  --surface-muted: rgba(248, 246, 240, 0.74);
+  --border: rgba(120, 100, 70, 0.13);
+  --border-strong: rgba(180, 83, 9, 0.22);
   --text: #1c1814;
   --muted: #5c5345;
   --quiet: #8a7e6e;
   --accent: #b45309;
   --accent-strong: #92400e;
-  --accent-soft: rgba(180, 83, 9, 0.08);
-  --violet-soft: rgba(180, 83, 9, 0.07);
-  --gold-soft: rgba(180, 83, 9, 0.05);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --accent-soft: rgba(180, 83, 9, 0.07);
+  --violet-soft: rgba(180, 83, 9, 0.06);
+  --gold-soft: rgba(180, 83, 9, 0.04);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
   --grid: rgba(120, 100, 70, 0.04);
 }
 
@@ -31,22 +33,23 @@
   color-scheme: dark;
   --background: #0d0b09;
   --foreground: #e8e4dd;
-  --surface: rgba(24, 20, 16, 0.55);
-  --surface-strong: rgba(32, 28, 22, 0.78);
-  --surface-muted: rgba(18, 16, 12, 0.62);
-  --border: rgba(180, 160, 130, 0.12);
-  --border-strong: rgba(245, 158, 11, 0.28);
+  --surface: rgba(24, 20, 16, 0.58);
+  --surface-strong: rgba(32, 28, 22, 0.80);
+  --surface-muted: rgba(18, 16, 12, 0.64);
+  --border: rgba(180, 160, 130, 0.10);
+  --border-strong: rgba(245, 158, 11, 0.24);
   --text: #e8e4dd;
   --muted: #b0a590;
   --quiet: #7a7060;
   --accent: #f59e0b;
   --accent-strong: #fcd34d;
-  --accent-soft: rgba(245, 158, 11, 0.10);
-  --violet-soft: rgba(245, 158, 11, 0.08);
-  --gold-soft: rgba(245, 158, 11, 0.06);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.12);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.24);
+  --accent-soft: rgba(245, 158, 11, 0.09);
+  --violet-soft: rgba(245, 158, 11, 0.07);
+  --gold-soft: rgba(245, 158, 11, 0.05);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.14);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.20), 0 1px 2px rgba(0, 0, 0, 0.14);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.14);
+  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.26), 0 1px 4px rgba(0, 0, 0, 0.14);
   --grid: rgba(180, 160, 130, 0.03);
 }
 
@@ -71,11 +74,18 @@ body {
     ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   transition:
     background-color 240ms ease,
     color 240ms ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.012em;
 }
 
 a {
@@ -275,7 +285,7 @@ textarea:focus-visible {
   .hero-cinematic {
     position: relative;
     display: grid;
-    min-height: clamp(420px, 64vh, 680px);
+    min-height: clamp(420px, 62vh, 660px);
     gap: 2rem;
     isolation: isolate;
     padding: clamp(1.5rem, 4vw, 4rem);
@@ -290,29 +300,31 @@ textarea:focus-visible {
     background: radial-gradient(
       circle at 50% 40%,
       var(--accent-soft),
-      transparent 26rem
+      transparent 28rem
     );
-    filter: blur(30px);
-    animation: ambient-float 16s ease-in-out infinite alternate;
+    filter: blur(36px);
+    animation: ambient-float 20s ease-in-out infinite alternate;
     pointer-events: none;
   }
 
   .hero-content {
     position: relative;
-    max-width: 760px;
+    max-width: 720px;
     align-self: start;
   }
 
   .hero-eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.26em];
+    @apply text-xs font-semibold uppercase tracking-[0.24em];
     color: var(--accent-strong);
+    opacity: 0.85;
   }
 
   .hero-title {
-    @apply mt-4 text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl;
+    @apply mt-4 text-5xl font-semibold leading-[1.08] sm:text-6xl lg:text-7xl;
+    font-family: var(--font-heading);
     color: var(--text);
     text-wrap: balance;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.018em;
   }
 
   .hero-copy {
@@ -353,18 +365,20 @@ textarea:focus-visible {
   }
 
   .section-title {
-    @apply mb-6 text-2xl font-bold tracking-tight;
+    @apply mb-6 text-2xl font-semibold tracking-tight;
     color: var(--text);
+    letter-spacing: -0.014em;
   }
 
   .section-title::before {
     display: block;
-    width: 2rem;
-    height: 3px;
+    width: 1.75rem;
+    height: 2.5px;
     margin-bottom: 0.75rem;
     content: "";
-    border-radius: 2px;
+    border-radius: 1px;
     background: var(--accent);
+    opacity: 0.72;
   }
 
   .section-kicker {
@@ -403,9 +417,10 @@ textarea:focus-visible {
   }
 
   .section-heading-row h2 {
-    @apply max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl;
+    @apply max-w-3xl text-3xl font-semibold leading-[1.15] sm:text-4xl;
     color: var(--text);
     text-wrap: balance;
+    letter-spacing: -0.016em;
   }
 
   .section-heading-row.compact {
@@ -485,7 +500,8 @@ textarea:focus-visible {
 
   .news-item-latest {
     background: var(--surface);
-    border-left: 3px solid var(--accent);
+    border-left: 2.5px solid var(--accent);
+    box-shadow: var(--shadow-sm);
   }
 
   .news-item time {
@@ -524,6 +540,11 @@ textarea:focus-visible {
     @apply relative overflow-hidden rounded-2xl border p-6 sm:p-8 lg:p-10;
     border-color: var(--border);
     background: var(--surface-strong);
+    box-shadow: var(--shadow);
+    transition: box-shadow 240ms ease;
+  }
+
+  .feature-case-study:hover {
     box-shadow: var(--shadow-lg);
   }
 
@@ -637,6 +658,11 @@ textarea:focus-visible {
     @apply grid gap-8 rounded-2xl border p-5 sm:p-8 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-center;
     border-color: var(--border);
     background: var(--surface);
+    transition: box-shadow 240ms ease;
+  }
+
+  .research-constellation:hover {
+    box-shadow: var(--shadow);
   }
 
   .research-orbit {
@@ -709,10 +735,13 @@ textarea:focus-visible {
     @apply grid gap-5 rounded-xl border p-6 transition md:grid-cols-[8rem_1fr];
     border-color: var(--border);
     background: var(--surface);
+    transition-duration: 200ms;
+    transition-property: transform, box-shadow, border-color;
+    transition-timing-function: ease;
   }
 
   .paper-row:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: var(--shadow-lg);
     border-color: var(--border-strong);
   }
@@ -778,6 +807,11 @@ textarea:focus-visible {
     @apply rounded-xl border p-6;
     border-color: var(--border);
     background: var(--surface);
+    transition: box-shadow 200ms ease;
+  }
+
+  .timeline-detail:hover {
+    box-shadow: var(--shadow);
   }
 
   /* ---- Education ------------------------------------------------------ */
@@ -785,6 +819,12 @@ textarea:focus-visible {
     @apply grid gap-6 rounded-xl border p-6 sm:grid-cols-[1fr_auto];
     border-color: var(--border);
     background: var(--surface);
+    transition: box-shadow 200ms ease, border-color 200ms ease;
+  }
+
+  .education-panel:hover {
+    box-shadow: var(--shadow);
+    border-color: var(--border-strong);
   }
 
   .education-panel h3 {
@@ -818,6 +858,11 @@ textarea:focus-visible {
     @apply rounded-2xl border p-6;
     border-color: var(--border);
     background: var(--surface);
+    transition: box-shadow 240ms ease;
+  }
+
+  .project-showcase:hover {
+    box-shadow: var(--shadow);
   }
 
   .project-feature {
@@ -860,6 +905,12 @@ textarea:focus-visible {
     @apply rounded-xl border p-6 sm:p-7;
     border-color: var(--border);
     background: var(--surface);
+    transition: box-shadow 200ms ease;
+  }
+
+  .dropbox-panel:hover,
+  .contact-info-panel:hover {
+    box-shadow: var(--shadow);
   }
 
   .dropbox-panel h2 {
@@ -1144,19 +1195,20 @@ textarea:focus-visible {
   .hero-cinematic {
     @apply p-5;
     min-height: auto;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .hero-title {
-    @apply text-4xl;
+    @apply text-4xl leading-[1.12];
   }
+
 
   .hero-portrait-wrap {
     width: min(100%, 220px);
   }
 
   .hero-portrait-wrap .profile-photo {
-    min-height: 280px;
+    min-height: 260px;
     object-fit: contain;
   }
 

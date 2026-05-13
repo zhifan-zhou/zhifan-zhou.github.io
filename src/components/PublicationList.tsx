@@ -13,17 +13,18 @@ export function PublicationList({
         <article key={publication.title} className="paper-row">
           <div className="paper-status">{publication.status}</div>
           <div className="min-w-0">
-            <h2 className="text-2xl font-semibold leading-tight text-stone-950">
+            <h2 className="text-2xl font-semibold leading-tight" style={{ color: 'var(--text)' }}>
               {publication.title}
             </h2>
             <p
-              className="mt-2 text-sm text-stone-600"
+              className="mt-2 text-sm"
+              style={{ color: 'var(--muted)' }}
               dangerouslySetInnerHTML={{ __html: publication.authors }}
             />
-            <p className="mt-2 text-sm font-medium text-sky-800">
+            <p className="mt-2 text-sm font-medium" style={{ color: 'var(--accent-strong)' }}>
               {publication.venue}
             </p>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-600">
+            <p className="mt-4 max-w-3xl text-sm leading-7" style={{ color: 'var(--muted)' }}>
               {publication.description}
             </p>
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
