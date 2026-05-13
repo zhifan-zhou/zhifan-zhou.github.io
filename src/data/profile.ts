@@ -311,7 +311,7 @@ export const siteCopy = {
       aboutTitle: "关于我",
       about: [
         "我是周知凡（别名叫 Sky），目前在卡耐基梅隆大学读本科，学习统计与机器学习。我对 AI agents 和 agentic systems 很感兴趣，尤其关注 LLM 如何进行规划、使用工具，并在迭代中变得更好。我的研究围绕语言模型与自动化机器学习的交叉展开，始终思考什么样的 AI 系统才是真的有用。",
-        "研究之外，我打篮球、羽毛球，也下围棋；同时也喜欢琢磨技术产品与用户体验。",
+        "研究之外，我喜欢篮球、羽毛球，和围棋。",
       ],
       researchTitle: "研究兴趣",
       researchInterests: [
