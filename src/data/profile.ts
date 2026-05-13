@@ -165,7 +165,7 @@ export const siteCopy = {
       aboutTitle: "About",
       about: [
         "I'm Zhifan Zhou (go by Sky), an undergraduate at Carnegie Mellon University studying Statistics and Machine Learning. I'm interested in AI agents and agentic systems — how LLMs can plan, use tools, and improve through iteration. My research sits at the intersection of language models and automated machine learning, and I care about building AI systems that are genuinely useful.",
-        "Outside of research, I play basketball, badminton, and Go, and I spend too much time thinking about what makes AI systems actually useful.",
+        "Outside of research, I play basketball, badminton, and Go.",
       ],
       researchTitle: "Research Interests",
       researchInterests: [
