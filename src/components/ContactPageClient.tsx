@@ -47,6 +47,7 @@ export function ContactPageClient() {
                 onChange={(event) => setName(event.target.value)}
                 name="name"
                 autoComplete="name"
+                required
               />
             </label>
             <label>
@@ -57,6 +58,7 @@ export function ContactPageClient() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                required
               />
             </label>
             <label>

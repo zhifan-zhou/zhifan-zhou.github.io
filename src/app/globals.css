@@ -71,6 +71,8 @@ body {
     ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   text-rendering: geometricPrecision;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition:
     background-color 240ms ease,
     color 240ms ease;
@@ -110,6 +112,25 @@ textarea:focus-visible {
   height: 1.5px;
   transform-origin: left;
   background: var(--accent);
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--accent);
+  border-radius: 0.5rem;
+  transform: translateY(-120%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .reveal-block {
@@ -208,7 +229,7 @@ textarea:focus-visible {
   }
 
   .home-main {
-    @apply min-w-0 space-y-20;
+    @apply min-w-0 space-y-16;
   }
 
   /* ---- Profile photo -------------------------------------------------- */
@@ -254,12 +275,12 @@ textarea:focus-visible {
   .hero-cinematic {
     position: relative;
     display: grid;
-    min-height: clamp(480px, 72vh, 740px);
-    gap: 1.5rem;
+    min-height: clamp(420px, 64vh, 680px);
+    gap: 2rem;
     isolation: isolate;
     padding: clamp(1.5rem, 4vw, 4rem);
     padding-top: clamp(2rem, 5vw, 5rem);
-    align-items: start;
+    align-items: center;
   }
 
   .hero-ambient {
@@ -288,7 +309,7 @@ textarea:focus-visible {
   }
 
   .hero-title {
-    @apply mt-4 text-5xl font-semibold leading-[0.92] sm:text-6xl lg:text-7xl;
+    @apply mt-4 text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl;
     color: var(--text);
     text-wrap: balance;
     letter-spacing: -0.02em;
@@ -328,7 +349,7 @@ textarea:focus-visible {
 
   /* ---- Content sections ----------------------------------------------- */
   .content-section {
-    @apply mb-12 scroll-mt-28;
+    @apply mb-10 scroll-mt-28;
   }
 
   .section-title {
@@ -404,7 +425,7 @@ textarea:focus-visible {
   /* ---- Research ------------------------------------------------------- */
 /* ---- Research ------------------------------------------------------- */
   .research-section {
-    @apply grid gap-8 md:grid-cols-[260px_minmax(0,1fr)] md:items-center;
+    @apply grid gap-8 md:grid-cols-[180px_minmax(0,1fr)] md:items-center;
   }
 
   .research-list {
@@ -952,6 +973,7 @@ textarea:focus-visible {
     @apply fixed inset-0 z-50 grid place-items-start px-4 pt-24 sm:place-items-center sm:pt-0;
     background: rgba(2, 6, 23, 0.58);
     backdrop-filter: blur(10px);
+    overscroll-behavior: contain;
   }
 
   .command-dialog {
