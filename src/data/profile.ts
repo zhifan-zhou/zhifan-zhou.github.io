@@ -180,7 +180,7 @@ export const siteCopy = {
         },
         {
           date: "2026",
-          text: "DataMaster submitted to NeurIPS 2026 — an agentic data science system for automated ML experimentation.",
+          text: "DataMaster published as an arXiv preprint — an agentic data science system for automated ML experimentation.",
         },
         {
           date: "2025",
@@ -195,8 +195,8 @@ export const siteCopy = {
           title: "DataMaster: Data-Centric Autonomous AI Research",
           authors:
             "Yaxin Du, Xiyuan Yang, <strong>Zhifan Zhou</strong>, Wanxu Liu, Zixing Lei, Zimeng Chen, Fenyi Liu, Haotian Wu, Yuzhu Cai, Zexi Liu, Xinyu Zhu, Wenhao Wang, Linfeng Zhang, Chen Qian, Siheng Chen",
-          venue: "NeurIPS 2026",
-          status: "Under Review",
+          venue: "arXiv",
+          status: "Preprint",
           description: "",
           links: datamasterLinks,
         },
@@ -335,7 +335,7 @@ export const siteCopy = {
         },
         {
           date: "2026",
-          text: "DataMaster 已投稿 NeurIPS 2026 —— 面向自动化机器学习实验的 agentic data science 系统。",
+          text: "DataMaster 发布 arXiv preprint —— 面向自动化机器学习实验的 agentic data science 系统。",
         },
         {
           date: "2025",
@@ -350,8 +350,8 @@ export const siteCopy = {
           title: "DataMaster: Data-Centric Autonomous AI Research",
           authors:
             "Yaxin Du, Xiyuan Yang, <strong>Zhifan Zhou</strong>, Wanxu Liu, Zixing Lei, Zimeng Chen, Fenyi Liu, Haotian Wu, Yuzhu Cai, Zexi Liu, Xinyu Zhu, Wenhao Wang, Linfeng Zhang, Chen Qian, Siheng Chen",
-          venue: "NeurIPS 2026",
-          status: "Under Review",
+          venue: "arXiv",
+          status: "Preprint",
           description: "",
           links: datamasterLinks,
         },
