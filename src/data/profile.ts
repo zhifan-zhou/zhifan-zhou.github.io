@@ -132,6 +132,23 @@ const datamasterLinks: SocialLink[] = [
   },
 ];
 
+const rsiMasterLinks: SocialLink[] = [
+  {
+    key: "github",
+    label: "GitHub",
+    href: "https://github.com/DorothyDUUU/RSI-Master",
+    ariaLabel: "View RSI-Master on GitHub",
+    isExternal: true,
+  },
+  {
+    key: "cv",
+    label: "Paper",
+    href: "https://arxiv.org/abs/2609.35561",
+    ariaLabel: "Read RSI-Master paper on arXiv",
+    isExternal: true,
+  },
+];
+
 export const siteCopy = {
   en: {
     languageAriaLabel: "Change language",
@@ -175,6 +192,10 @@ export const siteCopy = {
       newsTitle: "News",
       news: [
         {
+          date: "Sep. 2026",
+          text: "RSI-Master released as an arXiv preprint — structuring experiments to guide autonomous model improvement.",
+        },
+        {
           date: "2026",
           text: "Started as a Researcher at the School of Artificial Intelligence, Shanghai Jiao Tong University, working on agentic AI systems.",
         },
@@ -191,6 +212,16 @@ export const siteCopy = {
     publications: {
       title: "Publications",
       items: [
+        {
+          title:
+            "RSI-Master: Structuring Experiments to Guide Autonomous Model Improvement",
+          authors:
+            "Yaxin Du, Xiyuan Yang, <strong>Zhifan Zhou</strong>, Yujie Ge, Cheng Wang, Jiajun Wang, Sijie Chen, Zehui Liu, Yuxin Zhang, Weicheng Gu, Julian Zhang, Zixing Lei, Siheng Chen",
+          venue: "arXiv",
+          status: "Preprint",
+          description: "",
+          links: rsiMasterLinks,
+        },
         {
           title: "DataMaster: Data-Centric Autonomous AI Research",
           authors:
@@ -330,6 +361,10 @@ export const siteCopy = {
       newsTitle: "动态",
       news: [
         {
+          date: "2026年9月",
+          text: "RSI-Master 发布 arXiv 预印本，通过结构化实验引导自主模型改进。",
+        },
+        {
           date: "2026",
           text: "加入上海交通大学人工智能学院担任研究员，从事 agentic AI systems 相关研究。",
         },
@@ -346,6 +381,16 @@ export const siteCopy = {
     publications: {
       title: "论文",
       items: [
+        {
+          title:
+            "RSI-Master: Structuring Experiments to Guide Autonomous Model Improvement",
+          authors:
+            "Yaxin Du, Xiyuan Yang, <strong>Zhifan Zhou</strong>, Yujie Ge, Cheng Wang, Jiajun Wang, Sijie Chen, Zehui Liu, Yuxin Zhang, Weicheng Gu, Julian Zhang, Zixing Lei, Siheng Chen",
+          venue: "arXiv",
+          status: "Preprint",
+          description: "",
+          links: rsiMasterLinks,
+        },
         {
           title: "DataMaster: Data-Centric Autonomous AI Research",
           authors:
