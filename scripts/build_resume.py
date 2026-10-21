@@ -140,7 +140,7 @@ def build():
     bullets(
         story,
         [
-            "Co-authored a framework for autonomous model improvement combining an Experiment OS "
+            "Developed an autonomous model improvement framework integrating an Experiment OS "
             "with reviewer-guided research orchestration over a dynamic research DAG.",
             "The system achieved a 54.49 average on PostTrainBench versus 46.53 for the strongest agent "
             "baseline, with a 0.0% observed hacking rate.",
